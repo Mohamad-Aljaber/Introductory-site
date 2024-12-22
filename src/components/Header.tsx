@@ -3,9 +3,11 @@ import {
   AppBar,
   Box,
   Button,
-  Container,
+  CssBaseline,
   IconButton,
+  Slide,
   Toolbar,
+  useScrollTrigger,
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import theme from "../theme/theme";
@@ -37,19 +39,24 @@ const effectHoverStyles = {
 
 const Header = () => {
   const [mobileOpen, setMobileOpen] = React.useState(false);
+  const trigger = useScrollTrigger();
+
   const handleDrawerToggle = () => {
     setMobileOpen(prevState => !prevState);
   };
   return (
     <Box>
-      <Container>
-        <AppBar
-          component="header"
-          sx={{
-            py: 2,
-            backgroundColor: bgTheme,
-          }}
-        >
+      <CssBaseline />
+      <Slide in={!trigger}>
+      <AppBar
+        component="header"
+        position="static"
+        sx={{
+          py: 2,
+          backgroundColor: bgTheme,
+        }}
+      >
+        
           <Toolbar
             sx={{
               backgroundColor: bgTheme,
@@ -85,14 +92,15 @@ const Header = () => {
               ))}
             </Box>
           </Toolbar>
-        </AppBar>
-        <DrawerComponent
-          open={mobileOpen}
-          onClose={handleDrawerToggle}
-          navItems={navItems}
-          effectHoverStyles={effectHoverStyles}
-        />
-      </Container>
+        
+      </AppBar>
+      </Slide>
+      <DrawerComponent
+        open={mobileOpen}
+        onClose={handleDrawerToggle}
+        navItems={navItems}
+        effectHoverStyles={effectHoverStyles}
+      />
     </Box>
   );
 };
