@@ -9,7 +9,7 @@ const sTextTheme = theme.palette.text.secondary;
 const SingleSlider = () => {
   return (
     <Box
-      component="main"
+      component="section"
       sx={{ p: 3, backgroundColor: bgTheme, pb: 6 }}
     >
       <Container>

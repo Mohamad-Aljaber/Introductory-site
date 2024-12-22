@@ -4,13 +4,16 @@ import "./App.css";
 import SingleSlider from "./components/SingleSlider";
 import Header from "./components/Header";
 import DomainSearch from "./components/DomainSearch";
+import Services from "./components/Services";
 
 function App() {
   return (
     <Box>
       <Header />
       <SingleSlider />
-      <DomainSearch/>
+      <DomainSearch />
+      <Services />
+    
     </Box>
   );
 }
