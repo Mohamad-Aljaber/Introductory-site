@@ -1,7 +1,8 @@
-import { Box, Button, Container, Stack, Typography } from "@mui/material";
+import { Box, Container, Stack, Typography } from "@mui/material";
 import theme from "../theme/theme.ts";
 import hero from "../assets/images/hero_right.png";
 import shape from "../assets/images/top-left-shape.png";
+import CustomButton from "./CustomButton.tsx";
 const bgTheme = theme.palette.primary.main;
 const sTextTheme = theme.palette.text.secondary;
 // const pTextTheme = theme.palette.text.primary;
@@ -48,19 +49,10 @@ const SingleSlider = () => {
               analytics, marketing tools, security, data backups, and advanced
               technical support all in one place.
             </Typography>
-            <Button
-              variant="contained"
-              sx={{
-                background:
-                  "linear-gradient(to bottom, #a077ff 0%, #ef67ff 100%);",
-                fontWeight: "bold",
-                borderRadius: "30px",
-                padding: "15px 31px",
-                textTransform: "none",
-              }}
-            >
-              Start with as
-            </Button>
+            <CustomButton
+              text="Start with us"
+              icon={null}
+            />
           </Box>
           <Box
             component="img"
