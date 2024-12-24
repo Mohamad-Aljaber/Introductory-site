@@ -1,5 +1,4 @@
 import { Box, Container, Stack, Typography } from "@mui/material";
-import React from "react";
 import theme from "../theme/theme.ts";
 import SecurityIcon from "@mui/icons-material/Security";
 import WorkOutlineOutlinedIcon from "@mui/icons-material/WorkOutlineOutlined";
