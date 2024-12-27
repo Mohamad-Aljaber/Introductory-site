@@ -7,6 +7,8 @@ import DomainSearch from "./components/DomainSearch";
 import Services from "./components/Services";
 import About from "./components/About";
 import AskQuestions from "./components/AskQuestions";
+import Footer from "./components/Footer";
+import PersonalCards from "./components/PersonalCards";
 
 function App() {
   return (
@@ -17,6 +19,8 @@ function App() {
       <Services />
       <About />
       <AskQuestions />
+      <PersonalCards />
+      <Footer />
     </Box>
   );
 }
