@@ -15,19 +15,19 @@ import DrawerComponent from "./Drawer";
 import logoSrc from "../assets/images/logo.png";
 
 const bgTheme = theme.palette.primary.main;
-const colTheme = theme.palette.text.primary;
+const secondaryTheme = theme.palette.text.primary;
 const navItems = ["Home", "Help", "Business Gallery", "Contact"];
 
 const effectHoverStyles = {
   "&:hover": {
-    color: colTheme,
+    color: secondaryTheme,
   },
   "&::after": {
     content: '""',
     position: "absolute",
     width: "0%",
     height: "2px",
-    backgroundColor: colTheme,
+    backgroundColor: secondaryTheme,
     bottom: 0,
     left: 0,
     transition: "width 0.3s ease-in-out",
