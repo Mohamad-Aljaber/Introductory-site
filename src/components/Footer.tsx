@@ -4,13 +4,23 @@ import {
   Grid,
   List,
   ListItem,
+  ListItemIcon,
   ListItemText,
+  TextField,
   Typography,
 } from "@mui/material";
 import theme from "../theme/theme.ts";
 import logoSrc from "../assets/images/logo.png";
 import CustomButton from "./CustomButton.tsx";
 
+import PhoneIcon from "@mui/icons-material/Phone";
+import EmailIcon from "@mui/icons-material/Email";
+import LocationOnIcon from "@mui/icons-material/LocationOn";
+
+import FacebookIcon from "@mui/icons-material/Facebook";
+import InstagramIcon from "@mui/icons-material/Instagram";
+import LinkedInIcon from "@mui/icons-material/LinkedIn";
+import XIcon from "@mui/icons-material/X";
 const secondaryTheme = theme.palette.secondary.main;
 const textTHeme = theme.palette.text.primary;
 
@@ -28,7 +38,17 @@ const qurServices = [
   { text: "Technology Consulting", path: "" },
   { text: "Marketing & Media", path: "" },
 ];
-
+const ContactUs = [
+  { icon: <PhoneIcon />, text: "+352 681 555 826" },
+  { icon: <EmailIcon />, text: "skyline6710@gmail.com" },
+  { icon: <LocationOnIcon />, text: "123 Skyline Ave, Tech City" },
+];
+const socialMediaSites = [
+  { value: "facebook", icon: <FacebookIcon /> },
+  { value: "Instagram", icon: <InstagramIcon /> },
+  { value: "Linkedin", icon: <LinkedInIcon /> },
+  { value: "X", icon: <XIcon /> },
+];
 const Footer = () => {
   return (
     <Box
@@ -75,22 +95,35 @@ const Footer = () => {
             Stay updated with our latest services and offerings by subscribing
             to our newsletter.
           </Typography>
-          <Button
+          <TextField
             variant="outlined"
+            placeholder="Your email address"
             sx={{
-              // fontWeight: "bold",
               borderRadius: "10px",
-              padding: "10px 20px",
+              outline: "none",
               textTransform: "none",
               fontSize: "16px",
               color: "rgba(255, 255, 255, 0.6)",
               border: "1px solid rgba(255, 255, 255, 0.6)",
               width: "100%",
               my: 3,
+              "& .MuiOutlinedInput-root": {
+                "& fieldset": {
+                  borderColor: "rgba(255, 255, 255, 0.6)",
+                  borderRadius: "10px",
+                },
+                "&:hover fieldset": {
+                  borderColor: "rgba(255, 255, 255, 0.8)",
+                  borderRadius: "10px",
+                },
+                "&.Mui-focused fieldset": {
+                  borderColor: "rgba(255, 255, 255, 1)",
+                },
+                color: "rgba(255, 255, 255, 0.6)",
+              },
             }}
-          >
-            Your email address
-          </Button>
+          />
+
           <CustomButton
             text={"Subscribe"}
             icon={null}
@@ -100,8 +133,9 @@ const Footer = () => {
         <Grid
           item
           xs={12}
-          sm={3}
+          sm={2}
           mb={2}
+          sx={{ ml: { xs: 0, sm: 5 } }}
         >
           <Typography
             variant="h3"
@@ -189,7 +223,7 @@ const Footer = () => {
             Contact Us
           </Typography>
           <List>
-            {quickLinks.map((listItem, listIndex) => (
+            {ContactUs.map((listItem, listIndex) => (
               <ListItem
                 key={listIndex}
                 sx={{
@@ -198,9 +232,35 @@ const Footer = () => {
                   color: "rgb(194, 197, 219)",
                 }}
               >
+                <ListItemIcon sx={{ minWidth: "auto", color: "inherit" }}>
+                  {listItem.icon}
+                </ListItemIcon>
                 <ListItemText primary={listItem.text} />
               </ListItem>
             ))}
+            <List>
+              {socialMediaSites.map((listItem, listIndex) => (
+                <ListItemIcon
+                  key={listIndex}
+                  sx={{
+                    minWidth: "40px",
+                    height: "40px",
+                    p: 1,
+                    mr: 1,
+                    borderRadius: "100%",
+                    border: "1px solid white",
+                    color: "inherit",
+                    justifyContent: "center",
+                    alignItems: "center",
+                    "&:hover": {
+                      backgroundColor: textTHeme,
+                    },
+                  }}
+                >
+                  {listItem.icon}
+                </ListItemIcon>
+              ))}
+            </List>
           </List>
         </Grid>
       </Grid>
