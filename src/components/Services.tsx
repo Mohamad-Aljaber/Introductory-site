@@ -6,10 +6,11 @@ import CampaignOutlinedIcon from "@mui/icons-material/CampaignOutlined";
 import MemoryOutlinedIcon from "@mui/icons-material/MemoryOutlined";
 import SettingsOutlinedIcon from "@mui/icons-material/SettingsOutlined";
 import CloudOutlinedIcon from "@mui/icons-material/CloudOutlined";
+import { motion } from "motion/react";
+
 const bgTheme = theme.palette.primary.main;
 const secondaryTheme = theme.palette.secondary.main;
-// const sTextTheme = theme.palette.text.secondary;
-// const pTextTheme = theme.palette.text.primary;
+
 const services = [
   {
     heading: "AI-Powered Systems Development",
@@ -58,7 +59,20 @@ const services = [
     ),
   },
 ];
+
 const Services = () => {
+  const itemVariants = {
+    hidden: { opacity: 0, y: 400 },
+    visible: (i: number) => ({
+      opacity: 1,
+      y: 0,
+      transition: {
+        delay: i * 0.2,
+        duration: 0.5,
+      },
+    }),
+  };
+
   return (
     <Box
       component="section"
@@ -74,6 +88,11 @@ const Services = () => {
             <Box
               key={index}
               sx={{ width: "320px" }}
+              component={motion.div}
+              custom={index}
+              initial="hidden"
+              whileInView="visible"
+              variants={itemVariants}
             >
               {item.icon}
               <Typography

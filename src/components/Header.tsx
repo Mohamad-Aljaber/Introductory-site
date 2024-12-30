@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect } from "react";
 import {
   AppBar,
   Box,
@@ -45,24 +45,17 @@ const effectHoverStyles = {
 const Header = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [isSticky, setIsSticky] = useState(false);
-  const [scrolling, setScrolling] = useState(false);
 
-  const handleScroll = useCallback(() => {
-    if (!scrolling) {
-      window.requestAnimationFrame(() => {
-        setIsSticky(window.scrollY > 500);
-        setScrolling(false);
-      });
-      setScrolling(true);
-    }
-  }, [scrolling]);
+  const handleScroll = () => {
+    setIsSticky(window.scrollY > 500);
+  };
 
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
-  }, [handleScroll]);
+  }, []);
 
   const handleDrawerToggle = () => {
     setMobileOpen(prevState => !prevState);
@@ -78,7 +71,7 @@ const Header = () => {
           py: 2,
           backgroundColor: isSticky ? secondaryTheme : bgTheme,
           top: isSticky ? 0 : "-100px",
-          transition: "all 0.5s ease-in-out",
+          transition: "all 1s ease-in-out",
         }}
       >
         <Toolbar sx={{ justifyContent: "space-between" }}>

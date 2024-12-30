@@ -11,6 +11,7 @@ import about2 from "../assets/images/about2.png";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 import CustomButton from "./CustomButton";
 import PermPhoneMsgIcon from "@mui/icons-material/PermPhoneMsg";
+import { motion } from "motion/react";
 type AboutListItem = {
   text: string;
   icon: JSX.Element;
@@ -61,11 +62,18 @@ const About: React.FC = () => {
     <Box sx={{ p: 3, my: 13 }}>
       <Container>
         {aboutItemes.map((item, index) => (
-          <AboutTemplate
-            key={index}
-            aboutItem={[item]}
-          />
+          <motion.section
+            initial={{ opacity: 0, x: -200 }}
+            whileInView={{ opacity: 1, x: 0}}
+            transition={{ duration: 0.5 }}
+          >
+            <AboutTemplate
+              key={index}
+              aboutItem={[item]}
+            />
+          </motion.section>
         ))}
+
         <CustomButton
           text=" +352 681 555 826"
           icon={<PermPhoneMsgIcon />}

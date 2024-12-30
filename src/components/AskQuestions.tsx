@@ -1,10 +1,9 @@
 import { Box, Container, Grid, Stack, Typography } from "@mui/material";
+import { motion } from "framer-motion";
 import theme from "../theme/theme.ts";
 import CustomButton from "./CustomButton.tsx";
+
 const primaryTheme = theme.palette.primary.main;
-// const secondaryTheme = theme.palette.secondary.main;
-// const sTextTheme = theme.palette.text.secondary;
-// const pTextTheme = theme.palette.text.primary;
 const questions = [
   {
     heading: "How can AI improve my company's operations?",
@@ -23,10 +22,23 @@ const questions = [
     text: "Our team of experts provides consulting services to help you choose and implement the right technological solutions to optimize your business and drive growth.",
   },
 ];
+
 const AskQuestions = () => {
+  const itemVariants = {
+    hidden: { opacity: 0, y: 40 },
+    visible: (i: number) => ({
+      opacity: 1,
+      y: 0,
+      transition: {
+        delay: i * 0.3,
+        duration: 0.5,
+      },
+    }),
+  };
+
   return (
     <Box
-    id="help"
+      id="help"
       sx={{
         p: 3,
         backgroundColor: primaryTheme,
@@ -72,12 +84,18 @@ const AskQuestions = () => {
               gap: 7,
             }}
           >
-            {questions.map(question => (
+            {questions.map((question, index) => (
               <Grid
                 item
                 xs={12}
                 sm={5}
                 sx={{ position: "relative" }}
+                key={index}
+                component={motion.div}
+                custom={index}
+                initial="hidden"
+                whileInView="visible"
+                variants={itemVariants}
               >
                 <Typography
                   variant="h3"
