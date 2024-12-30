@@ -61,8 +61,8 @@ const SingleSlider = () => {
             </Box>
           </motion.section>
           <motion.section
-            initial={{ x: 500, y: 200 }}
-            animate={{ x: 0, y: 0 }}
+            initial={{ x: 500 }}
+            animate={{ x: 0 }}
             transition={{ duration: 1 }}
           >
             <Box
