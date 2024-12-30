@@ -26,6 +26,7 @@ const questions = [
 const AskQuestions = () => {
   return (
     <Box
+    id="help"
       sx={{
         p: 3,
         backgroundColor: primaryTheme,

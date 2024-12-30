@@ -1,18 +1,33 @@
 import React from "react";
-import { Box, Drawer, List, ListItem, ListItemButton, ListItemText } from "@mui/material";
+import {
+  Box,
+  Drawer,
+  Link,
+  List,
+  ListItem,
+  ListItemButton,
+  ListItemText,
+} from "@mui/material";
 import theme from "../theme/theme";
 
 const bgTheme = theme.palette.primary.main;
-
+interface NavItem {
+  text: string;
+  path: string;
+}
 interface DrawerComponentProps {
   open: boolean;
   onClose: () => void;
-  navItems: string[];
+  navItems: NavItem[];
   effectHoverStyles: object;
-
 }
 
-const DrawerComponent: React.FC<DrawerComponentProps> = ({ open, onClose, navItems,effectHoverStyles }) => {
+const DrawerComponent: React.FC<DrawerComponentProps> = ({
+  open,
+  onClose,
+  navItems,
+  effectHoverStyles,
+}) => {
   return (
     <Drawer
       variant="temporary"
@@ -39,17 +54,27 @@ const DrawerComponent: React.FC<DrawerComponentProps> = ({ open, onClose, navIte
         }}
       >
         <List>
-          {navItems.map((item) => (
-            <ListItem key={item} disablePadding>
-              <ListItemButton
+          {navItems.map((item, index) => (
+            <ListItem
+              key={index}
+              disablePadding
+            >
+              <Link
+                href={item.path}
                 sx={{
-                  color: "#fff",
-                  textAlign: "center",
+                  textDecoration: "none",
                   ...effectHoverStyles,
+                  color: "#fff",
                 }}
               >
-                <ListItemText primary={item} />
-              </ListItemButton>
+                <ListItemButton
+                  sx={{
+                    textAlign: "center",
+                  }}
+                >
+                  <ListItemText primary={item.text} />
+                </ListItemButton>
+              </Link>
             </ListItem>
           ))}
         </List>
