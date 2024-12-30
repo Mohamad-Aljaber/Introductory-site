@@ -2,7 +2,7 @@ import { Box, Container, Stack, Typography } from "@mui/material";
 import theme from "../theme/theme.ts";
 import hero from "../assets/images/hero_right.png";
 import shape from "../assets/images/top-left-shape.png";
-import CustomButton from "./CustomButton.tsx";
+import CustomButton from "../components/CustomButton.tsx";
 import { motion } from "motion/react";
 const bgTheme = theme.palette.primary.main;
 const sTextTheme = theme.palette.text.secondary;

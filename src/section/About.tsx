@@ -1,6 +1,6 @@
 import { Box, Container } from "@mui/material";
 import React from "react";
-import AboutTemplate from "./AboutTemplate";
+import AboutTemplate from "../components/AboutTemplate";
 import SettingsOutlinedIcon from "@mui/icons-material/SettingsOutlined";
 import MemoryOutlinedIcon from "@mui/icons-material/MemoryOutlined";
 import StackedBarChartOutlinedIcon from "@mui/icons-material/StackedBarChartOutlined";
@@ -9,7 +9,7 @@ import GppGoodIcon from "@mui/icons-material/GppGood";
 import about1 from "../assets/images/about1.png";
 import about2 from "../assets/images/about2.png";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
-import CustomButton from "./CustomButton";
+import CustomButton from "../components/CustomButton";
 import PermPhoneMsgIcon from "@mui/icons-material/PermPhoneMsg";
 import { motion } from "motion/react";
 type AboutListItem = {
@@ -59,12 +59,12 @@ const aboutItemes: AboutItem[] = [
 
 const About: React.FC = () => {
   return (
-    <Box sx={{ p: 3, my: 13 }}>
+    <Box sx={{ p: 3, my: 13 }} id="about">
       <Container>
         {aboutItemes.map((item, index) => (
           <motion.section
             initial={{ opacity: 0, x: -200 }}
-            whileInView={{ opacity: 1, x: 0}}
+            whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5 }}
           >
             <AboutTemplate

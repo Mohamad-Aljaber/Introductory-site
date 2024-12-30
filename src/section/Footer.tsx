@@ -1,6 +1,7 @@
 import {
   Box,
   Grid,
+  Link,
   List,
   ListItem,
   ListItemIcon,
@@ -10,7 +11,8 @@ import {
 } from "@mui/material";
 import theme from "../theme/theme.ts";
 import logoSrc from "../assets/images/logo.png";
-import CustomButton from "./CustomButton.tsx";
+import CustomButton from "../components/CustomButton.tsx";
+import { Link as RouterLink } from "react-router-dom";
 
 import PhoneIcon from "@mui/icons-material/Phone";
 import EmailIcon from "@mui/icons-material/Email";
@@ -24,11 +26,11 @@ const secondaryTheme = theme.palette.secondary.main;
 const textTHeme = theme.palette.text.primary;
 
 const quickLinks = [
-  { text: "About Us", path: "" },
-  { text: "Business Gallery", path: "" },
-  { text: "FAQs", path: "" },
-  { text: "Support", path: "" },
-  { text: "Contact", path: "" },
+  { text: "About Us", path: "/#about" },
+  { text: "Business Gallery", path: "Business-Gallery" },
+  { text: "FAQs", path: "/#help" },
+  { text: "Support", path: "#" },
+  { text: "Contact", path: "contact" },
 ];
 const qurServices = [
   { text: "AI-Powered Systems", path: "" },
@@ -43,10 +45,22 @@ const ContactUs = [
   { icon: <LocationOnIcon />, text: "123 Skyline Ave, Tech City" },
 ];
 const socialMediaSites = [
-  { value: "facebook", icon: <FacebookIcon /> },
-  { value: "Instagram", icon: <InstagramIcon /> },
-  { value: "Linkedin", icon: <LinkedInIcon /> },
-  { value: "X", icon: <XIcon /> },
+  {
+    value: "facebook",
+    icon: <FacebookIcon />,
+    path: "https://www.facebook.com/",
+  },
+  {
+    value: "Instagram",
+    icon: <InstagramIcon />,
+    path: "https://www.facebook.com/",
+  },
+  {
+    value: "Linkedin",
+    icon: <LinkedInIcon />,
+    path: "https://www.facebook.com/",
+  },
+  { value: "X", icon: <XIcon />, path: "https://www.facebook.com/" },
 ];
 const Footer = () => {
   return (
@@ -73,12 +87,17 @@ const Footer = () => {
           sm={3}
           mb={3}
         >
-          <Box
-            component="img"
-            src={logoSrc}
-            alt="logo"
-            sx={{ width: "100px", mb: 2 }}
-          />
+          <Link
+            component={RouterLink}
+            to="/"
+          >
+            <Box
+              component="img"
+              src={logoSrc}
+              alt="logo"
+              sx={{ width: "100px", mb: 2 }}
+            />
+          </Link>
           <Typography
             variant="h3"
             sx={{
@@ -151,19 +170,28 @@ const Footer = () => {
                 key={listIndex}
                 sx={{
                   pl: 0,
-                  color: "rgb(194, 197, 219)",
                 }}
               >
-                <ListItemText
-                  primary={listItem.text}
+                <Link
+                  {...(listItem.path.includes("#")
+                    ? { href: listItem.path }
+                    : { component: RouterLink, to: listItem.path })}
                   sx={{
-                    "&:hover": {
-                      color: textTHeme,
-                      textDecoration: "underline",
-                      transition: "width 0.5s ease-in-out",
-                    },
+                    textDecoration: "none",
+                    color: "rgb(194, 197, 219)",
                   }}
-                />
+                >
+                  <ListItemText
+                    primary={listItem.text}
+                    sx={{
+                      "&:hover": {
+                        color: textTHeme,
+                        textDecoration: "underline",
+                        transition: "width 0.5s ease-in-out",
+                      },
+                    }}
+                  />
+                </Link>
               </ListItem>
             ))}
           </List>
@@ -239,25 +267,31 @@ const Footer = () => {
             ))}
             <List>
               {socialMediaSites.map((listItem, listIndex) => (
-                <ListItemIcon
-                  key={listIndex}
-                  sx={{
-                    minWidth: "40px",
-                    height: "40px",
-                    p: 1,
-                    mr: 1,
-                    borderRadius: "100%",
-                    border: "1px solid white",
-                    color: "inherit",
-                    justifyContent: "center",
-                    alignItems: "center",
-                    "&:hover": {
-                      backgroundColor: textTHeme,
-                    },
-                  }}
+                <Link
+                  component={RouterLink}
+                  to={listItem.path}
+                  color="#fff"
                 >
-                  {listItem.icon}
-                </ListItemIcon>
+                  <ListItemIcon
+                    key={listIndex}
+                    sx={{
+                      minWidth: "40px",
+                      height: "40px",
+                      p: 1,
+                      mr: 1,
+                      borderRadius: "100%",
+                      border: "1px solid white",
+                      color: "inherit",
+                      justifyContent: "center",
+                      alignItems: "center",
+                      "&:hover": {
+                        backgroundColor: textTHeme,
+                      },
+                    }}
+                  >
+                    {listItem.icon}
+                  </ListItemIcon>
+                </Link>
               ))}
             </List>
           </List>

@@ -10,17 +10,18 @@ import {
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import theme from "../theme/theme";
-import DrawerComponent from "./Drawer";
+import DrawerComponent from "../components/Drawer";
 import logoSrc from "../assets/images/logo.png";
+import { Link as RouterLink } from "react-router-dom";
 
 const bgTheme = theme.palette.primary.main;
 const secondaryTheme = theme.palette.secondary.main;
 const textTheme = theme.palette.text.primary;
 const navItems = [
-  { text: "Home", path: "#" },
-  { text: "Help", path: "#help" },
-  { text: "Business Gallery", path: "#" },
-  { text: "Contact", path: "#" },
+  { text: "Home", path: "/" },
+  { text: "Help", path: "/#help" },
+  { text: "Business Gallery", path: "Business-Gallery" },
+  { text: "Contact", path: "contact" },
 ];
 
 const effectHoverStyles = {
@@ -64,6 +65,7 @@ const Header = () => {
   return (
     <Box>
       <CssBaseline />
+
       <AppBar
         component="header"
         sx={{
@@ -75,7 +77,10 @@ const Header = () => {
         }}
       >
         <Toolbar sx={{ justifyContent: "space-between" }}>
-          <Link href="#">
+          <Link
+            component={RouterLink}
+            to="/"
+          >
             <Box
               component="img"
               src={logoSrc}
@@ -98,7 +103,9 @@ const Header = () => {
                 sx={{ color: "#fff", ...effectHoverStyles }}
               >
                 <Link
-                  href={item.path}
+                  {...(item.path.includes("#")
+                    ? { href: item.path }
+                    : { component: RouterLink, to: item.path })}
                   sx={{
                     color: "inherit",
                     textDecoration: "none",
@@ -111,6 +118,7 @@ const Header = () => {
           </Box>
         </Toolbar>
       </AppBar>
+
       <DrawerComponent
         open={mobileOpen}
         onClose={handleDrawerToggle}
