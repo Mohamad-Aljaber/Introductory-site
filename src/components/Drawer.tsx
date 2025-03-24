@@ -8,8 +8,7 @@ import {
   ListItemButton,
   ListItemText,
 } from "@mui/material";
-import theme from "../theme/theme";
-
+import theme from "../../public/theme/theme";
 const bgTheme = theme.palette.primary.main;
 interface NavItem {
   text: string;

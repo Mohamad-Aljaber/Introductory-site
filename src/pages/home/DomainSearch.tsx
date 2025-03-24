@@ -6,7 +6,7 @@ import {
   Stack,
   Typography,
 } from "@mui/material";
-import theme2 from "../theme/theme.ts";
+import theme2 from "../../../public/theme/theme.ts";
 import { styled } from "@mui/material/styles";
 import SearchIcon from "@mui/icons-material/Search";
 import LanguageIcon from "@mui/icons-material/Language";

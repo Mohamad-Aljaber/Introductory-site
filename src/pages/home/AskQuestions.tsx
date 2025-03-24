@@ -1,7 +1,7 @@
 import { Box, Container, Grid, Stack, Typography } from "@mui/material";
 import { motion } from "framer-motion";
-import theme from "../theme/theme.ts";
-import CustomButton from "../components/CustomButton.tsx";
+import CustomButton from "../../components/CustomButton.tsx";
+import theme from "../../../public/theme/theme.ts";
 
 const primaryTheme = theme.palette.primary.main;
 const questions = [

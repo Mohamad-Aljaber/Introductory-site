@@ -9,7 +9,7 @@ import {
   TextField,
   Typography,
 } from "@mui/material";
-import theme from "../theme/theme.ts";
+import theme from "../../public/theme/theme.ts";
 import logoSrc from "../assets/images/logo.png";
 import CustomButton from "../components/CustomButton.tsx";
 import { Link as RouterLink } from "react-router-dom";

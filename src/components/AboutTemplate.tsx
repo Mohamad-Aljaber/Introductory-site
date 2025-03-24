@@ -8,7 +8,7 @@ import {
   Typography,
 } from "@mui/material";
 
-import theme from "../theme/theme";
+import theme from "../../public/theme/theme";
 
 type AboutListItem = {
   text: string;

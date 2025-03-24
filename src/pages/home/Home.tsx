@@ -1,14 +1,14 @@
 import { Box } from "@mui/material";
-import SingleSlider from "../../section/SingleSlider";
-import DomainSearch from "../../section/DomainSearch";
-import Services from "../../section/Services";
-import AskQuestions from "../../section/AskQuestions";
-import About from "../../section/About";
-import PersonalCards from "../../section/PersonalCards";
+import SingleSlider from "./SingleSlider";
+import DomainSearch from "./DomainSearch";
+import Services from "./Services";
+import About from "./About";
+import AskQuestions from "./AskQuestions";
+import PersonalCards from "./PersonalCards";
 
 const Home = () => {
   return (
-    <Box>
+    <Box sx={{ overflow: "hidden" }}>
       <SingleSlider />
       <DomainSearch />
       <Services />

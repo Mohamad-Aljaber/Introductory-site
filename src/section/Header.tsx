@@ -6,23 +6,20 @@ import {
   CssBaseline,
   IconButton,
   Link,
+  Stack,
   Toolbar,
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
-import theme from "../theme/theme";
+import theme from "../../public/theme/theme";
 import DrawerComponent from "../components/Drawer";
 import logoSrc from "../assets/images/logo.png";
 import { Link as RouterLink } from "react-router-dom";
+import SplitButton from "../components/languageButtom";
+import { useTranslation } from "react-i18next";
 
 const bgTheme = theme.palette.primary.main;
 const secondaryTheme = theme.palette.secondary.main;
 const textTheme = theme.palette.text.primary;
-const navItems = [
-  { text: "Home", path: "/" },
-  { text: "Help", path: "/#help" },
-  { text: "Business Gallery", path: "Business-Gallery" },
-  { text: "Contact", path: "contact" },
-];
 
 const effectHoverStyles = {
   "&:hover": {
@@ -46,6 +43,15 @@ const effectHoverStyles = {
 const Header = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [isSticky, setIsSticky] = useState(false);
+  const { t } = useTranslation(); // 🔹 Initialize useTranslation()
+
+  // Translated navigation items
+  const navItems = [
+    { text: t("menu.home"), path: "/" },
+    { text: t("menu.help"), path: "/#help" },
+    { text: t("menu.business_gallery"), path: "Business-Gallery" },
+    { text: t("menu.contact"), path: "contact" },
+  ];
 
   const handleScroll = () => {
     setIsSticky(window.scrollY > 500);
@@ -72,7 +78,7 @@ const Header = () => {
           position: isSticky ? "fixed" : "static",
           py: 2,
           backgroundColor: isSticky ? secondaryTheme : bgTheme,
-          top: isSticky ? 0 : "-100px",
+          top: isSticky ? 0 : "-300px",
           transition: "all 1s ease-in-out",
         }}
       >
@@ -88,34 +94,39 @@ const Header = () => {
               sx={{ width: "100px" }}
             />
           </Link>
-          <IconButton
-            color="inherit"
-            edge="end"
-            onClick={handleDrawerToggle}
-            sx={{ mr: 2, display: { sm: "none" } }}
-          >
-            <MenuIcon />
-          </IconButton>
-          <Box sx={{ display: { xs: "none", sm: "block" } }}>
-            {navItems.map((item, index) => (
-              <Button
-                key={index}
-                sx={{ color: "#fff", ...effectHoverStyles }}
-              >
-                <Link
-                  {...(item.path.includes("#")
-                    ? { href: item.path }
-                    : { component: RouterLink, to: item.path })}
-                  sx={{
-                    color: "inherit",
-                    textDecoration: "none",
-                  }}
+          <Stack direction="row">
+            <IconButton
+              color="inherit"
+              edge="end"
+              onClick={handleDrawerToggle}
+              sx={{ mr: 2, display: { sm: "none" } }}
+            >
+              <MenuIcon />
+            </IconButton>
+
+            {/* Navigation Menu */}
+            <Box sx={{ display: { xs: "none", sm: "flex" } }}>
+              {navItems.map((item, index) => (
+                <Button
+                  key={index}
+                  sx={{ color: "#fff", ...effectHoverStyles }}
                 >
-                  {item.text}
-                </Link>
-              </Button>
-            ))}
-          </Box>
+                  <Link
+                    {...(item.path.includes("#")
+                      ? { href: item.path }
+                      : { component: RouterLink, to: item.path })}
+                    sx={{
+                      color: "inherit",
+                      textDecoration: "none",
+                    }}
+                  >
+                    {item.text}
+                  </Link>
+                </Button>
+              ))}
+            </Box>
+            <SplitButton />
+          </Stack>
         </Toolbar>
       </AppBar>
 

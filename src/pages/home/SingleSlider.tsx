@@ -1,8 +1,8 @@
 import { Box, Container, Stack, Typography } from "@mui/material";
-import theme from "../theme/theme.ts";
-import hero from "../assets/images/hero_right.png";
-import shape from "../assets/images/top-left-shape.png";
-import CustomButton from "../components/CustomButton.tsx";
+import theme from "../../../public/theme/theme.ts";
+import hero from "../../assets/images/hero_right.png";
+// import shape from "../../assets/images/top-left-shape.png";
+import CustomButton from "../../components/CustomButton.tsx";
 import { motion } from "motion/react";
 const bgTheme = theme.palette.primary.main;
 const sTextTheme = theme.palette.text.secondary;
@@ -17,6 +17,7 @@ const SingleSlider = () => {
         <Stack
           direction={"row"}
           alignItems={"center"}
+          sx={{ overflow: "hidden" }}
         >
           <motion.section
             initial={{ x: -500 }}
@@ -73,18 +74,7 @@ const SingleSlider = () => {
               sx={{ display: { xs: "none", md: "block" } }}
             />
           </motion.section>
-          <Box
-            component="img"
-            src={shape}
-            alt="hero_right"
-            width={600}
-            sx={{
-              display: { xs: "none", sm: "block" },
-              position: "absolute",
-              top: "-15rem",
-              left: "-15rem",
-            }}
-          />
+        
         </Stack>
       </Container>
     </Box>

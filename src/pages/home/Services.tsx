@@ -1,5 +1,4 @@
 import { Box, Container, Stack, Typography } from "@mui/material";
-import theme from "../theme/theme.ts";
 import SecurityIcon from "@mui/icons-material/Security";
 import WorkOutlineOutlinedIcon from "@mui/icons-material/WorkOutlineOutlined";
 import CampaignOutlinedIcon from "@mui/icons-material/CampaignOutlined";
@@ -7,7 +6,7 @@ import MemoryOutlinedIcon from "@mui/icons-material/MemoryOutlined";
 import SettingsOutlinedIcon from "@mui/icons-material/SettingsOutlined";
 import CloudOutlinedIcon from "@mui/icons-material/CloudOutlined";
 import { motion } from "motion/react";
-
+import theme from "../../../public/theme/theme";
 const bgTheme = theme.palette.primary.main;
 const secondaryTheme = theme.palette.secondary.main;
 

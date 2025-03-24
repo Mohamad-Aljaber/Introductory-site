@@ -8,18 +8,17 @@ import {
 } from "@mui/material";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Navigation } from "swiper/modules";
-
 import "swiper/css";
-import theme from "../theme/theme.ts";
-import quotes from "../assets/images/quotes-sign.png";
+import quotes from "../../assets/images/quotes-sign.png";
 import { ArrowBack, ArrowForward } from "@mui/icons-material";
 
-import engIssa from "../assets/images/engissa.jpg";
-import engsuhaeb from "../assets/images/engsuhaeb.jpg";
-import engabd from "../assets/images/engabd.jpg";
-import engAbdulrahman from "../assets/images/engAbdulrahman.jpg";
-import engahmad from "../assets/images/engahmad.jpg";
-import engKhaled from "../assets/images/engKhaled.jpg";
+import engIssa from "../../assets/images/engissa.jpg";
+import engsuhaeb from "../../assets/images/engsuhaeb.jpg";
+import engabd from "../../assets/images/engabd.jpg";
+import engAbdulrahman from "../../assets/images/engAbdulrahman.jpg";
+import engahmad from "../../assets/images/engahmad.jpg";
+import engKhaled from "../../assets/images/engKhaled.jpg";
+import theme from "../../../public/theme/theme";
 const testimonials = [
   {
     id: 1,

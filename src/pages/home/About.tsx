@@ -1,17 +1,18 @@
 import { Box, Container } from "@mui/material";
 import React from "react";
-import AboutTemplate from "../components/AboutTemplate";
 import SettingsOutlinedIcon from "@mui/icons-material/SettingsOutlined";
 import MemoryOutlinedIcon from "@mui/icons-material/MemoryOutlined";
 import StackedBarChartOutlinedIcon from "@mui/icons-material/StackedBarChartOutlined";
 import ThumbUpAltIcon from "@mui/icons-material/ThumbUpAlt";
 import GppGoodIcon from "@mui/icons-material/GppGood";
-import about1 from "../assets/images/about1.png";
-import about2 from "../assets/images/about2.png";
+import about1 from "../../assets/images/about1.png";
+import about2 from "../../assets/images/about2.png";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
-import CustomButton from "../components/CustomButton";
+
 import PermPhoneMsgIcon from "@mui/icons-material/PermPhoneMsg";
 import { motion } from "motion/react";
+import AboutTemplate from "../../components/AboutTemplate";
+import CustomButton from "../../components/CustomButton";
 type AboutListItem = {
   text: string;
   icon: JSX.Element;
@@ -59,7 +60,10 @@ const aboutItemes: AboutItem[] = [
 
 const About: React.FC = () => {
   return (
-    <Box sx={{ p: 3, my: 13 }} id="about">
+    <Box
+      sx={{ p: 3, my: 13 }}
+      id="about"
+    >
       <Container>
         {aboutItemes.map((item, index) => (
           <motion.section
