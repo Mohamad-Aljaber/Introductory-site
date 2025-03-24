@@ -9,6 +9,7 @@ import {
 } from "@mui/material";
 
 import theme from "../../public/theme/theme";
+import { useTranslation } from "react-i18next";
 
 type AboutListItem = {
   text: string;
@@ -30,6 +31,9 @@ type AboutTemplateProps = {
 const primaryTheme = theme.palette.primary.main;
 
 const AboutTemplate: React.FC<AboutTemplateProps> = ({ aboutItem }) => {
+  const { i18n } = useTranslation();
+  const textAlignValue = i18n.dir() === "rtl" ? "right" : "left";
+
   return (
     <Box>
       {aboutItem.map((item, index) => (
@@ -84,6 +88,7 @@ const AboutTemplate: React.FC<AboutTemplateProps> = ({ aboutItem }) => {
                     alignItems: "center",
                     gap: 1,
                     pl: 0,
+                    textAlign: textAlignValue,
                   }}
                 >
                   {listItem.icon}

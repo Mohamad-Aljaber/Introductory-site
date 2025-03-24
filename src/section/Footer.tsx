@@ -1,7 +1,6 @@
 import {
   Box,
   Grid,
-  Link,
   List,
   ListItem,
   ListItemIcon,
@@ -10,9 +9,9 @@ import {
   Typography,
 } from "@mui/material";
 import theme from "../../public/theme/theme.ts";
-import logoSrc from "../assets/images/logo.png";
+
 import CustomButton from "../components/CustomButton.tsx";
-import { Link as RouterLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 import PhoneIcon from "@mui/icons-material/Phone";
 import EmailIcon from "@mui/icons-material/Email";
@@ -22,47 +21,83 @@ import FacebookIcon from "@mui/icons-material/Facebook";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import XIcon from "@mui/icons-material/X";
+import { useTranslation } from "react-i18next";
+// import { useState } from "react";
 const secondaryTheme = theme.palette.secondary.main;
 const textTHeme = theme.palette.text.primary;
-
-const quickLinks = [
-  { text: "About Us", path: "/#about" },
-  { text: "Business Gallery", path: "Business-Gallery" },
-  { text: "FAQs", path: "/#help" },
-  { text: "Support", path: "#" },
-  { text: "Contact", path: "contact" },
-];
-const qurServices = [
-  { text: "AI-Powered Systems", path: "" },
-  { text: "Cloud Services", path: "" },
-  { text: "Technical Support", path: "" },
-  { text: "Technology Consulting", path: "" },
-  { text: "Marketing & Media", path: "" },
-];
-const ContactUs = [
-  { icon: <PhoneIcon />, text: "+352 681 555 826" },
-  { icon: <EmailIcon />, text: "skyline6710@gmail.com" },
-  { icon: <LocationOnIcon />, text: "123 Skyline Ave, Tech City" },
-];
-const socialMediaSites = [
-  {
-    value: "facebook",
-    icon: <FacebookIcon />,
-    path: "https://www.facebook.com/",
-  },
-  {
-    value: "Instagram",
-    icon: <InstagramIcon />,
-    path: "https://www.facebook.com/",
-  },
-  {
-    value: "Linkedin",
-    icon: <LinkedInIcon />,
-    path: "https://www.facebook.com/",
-  },
-  { value: "X", icon: <XIcon />, path: "https://www.facebook.com/" },
-];
 const Footer = () => {
+  const { t, i18n } = useTranslation();
+  // const [email, setEmail] = useState("");
+
+  // const handleSubmit = async (event: React.FormEvent) => {
+  //   event.preventDefault();
+  //   const formData = new FormData();
+  //   formData.append("access_key", "99e963cc-8628-41ac-9978-871a879f1530");
+  //   formData.append("email", email);
+
+  //   const response = await fetch("https://api.web3forms.com/submit", {
+  //     method: "POST",
+  //     body: formData,
+  //   });
+
+  //   const result = await response.json();
+  //   if (result.success) {
+  //     setEmail("");
+  //   }
+  // };
+
+  const contactInfo = [
+    {
+      icon: <PhoneIcon style={{ color: "#fff", fontSize: "20px" }} />,
+      text: "+31 6 37718553",
+      to: "https://wa.me/+31637718553",
+    },
+    {
+      icon: <EmailIcon style={{ color: "#fff", fontSize: "20px" }} />,
+      text: "skyline6710@gmail.com",
+      to: "mailto:skyline6710@gmail.com",
+    },
+    {
+      icon: <LocationOnIcon style={{ color: "#fff", fontSize: "20px" }} />,
+      text: "123 Skyline Ave, Tech City",
+      to: "#",
+    },
+  ];
+
+  const socialMediaSites = [
+    {
+      icon: <FacebookIcon style={{ fontSize: "25px" }} />,
+      path: "https://www.facebook.com/",
+    },
+    {
+      icon: <InstagramIcon style={{ fontSize: "25px" }} />,
+      path: "https://www.instagram.com/skyline_.company/profilecard/?igsh=OHNsejRnbXo2cWR0",
+    },
+    {
+      icon: <LinkedInIcon style={{ fontSize: "25px" }} />,
+      path: "https://www.linkedin.com/company/skyline2024/",
+    },
+    { icon: <XIcon style={{ fontSize: "25px" }} />, path: "https://x.com/" },
+  ];
+
+  const quickLinks = [
+    { name: t("footer.quickLinksList.0.name"), to: "#aboutUs" },
+    { name: t("footer.quickLinksList.1.name"), to: "/business-gallery" },
+    { name: t("footer.quickLinksList.2.name"), to: "#help" },
+    { name: t("footer.quickLinksList.3.name"), to: "#services" },
+    { name: t("footer.quickLinksList.4.name"), to: "/contact" },
+  ];
+
+  const services = [
+    { name: t("footer.servicesList.0.name"), to: "/ai-powered-systems" },
+    { name: t("footer.servicesList.1.name"), to: "/cloud-services" },
+    { name: t("footer.servicesList.2.name"), to: "/technical-support" },
+    { name: t("footer.servicesList.3.name"), to: "/technology-consulting" },
+    { name: t("footer.servicesList.4.name"), to: "/marketing-media" },
+  ];
+
+  const textAlignValue = i18n.dir() === "rtl" ? "right" : "left";
+
   return (
     <Box
       sx={{
@@ -71,6 +106,7 @@ const Footer = () => {
         py: 10,
         pt: 15,
         color: "#fff",
+        textAlign: textAlignValue,
       }}
     >
       <Grid
@@ -79,6 +115,7 @@ const Footer = () => {
         sx={{
           justifyContent: "space-around",
           mb: 6,
+          textAlign: textAlignValue,
         }}
       >
         <Grid
@@ -87,17 +124,6 @@ const Footer = () => {
           sm={3}
           mb={3}
         >
-          <Link
-            component={RouterLink}
-            to="/"
-          >
-            <Box
-              component="img"
-              src={logoSrc}
-              alt="logo"
-              sx={{ width: "100px", mb: 2 }}
-            />
-          </Link>
           <Typography
             variant="h3"
             sx={{
@@ -107,11 +133,10 @@ const Footer = () => {
               lineHeight: 1.5,
             }}
           >
-            Subscribe to Our Newsletter
+            {t("footer.subscribeNewsletter")}{" "}
           </Typography>
           <Typography color="rgba(255, 255, 255, 0.6)">
-            Stay updated with our latest services and offerings by subscribing
-            to our newsletter.
+            {t("footer.stayUpdated")}
           </Typography>
           <TextField
             variant="outlined"
@@ -162,27 +187,19 @@ const Footer = () => {
               fontWeight: "600",
             }}
           >
-            Quick Links
+            {t("footer.quickLinks")}{" "}
           </Typography>
           <List>
-            {quickLinks.map((listItem, listIndex) => (
+            {quickLinks.map((link, index) => (
               <ListItem
-                key={listIndex}
+                key={index}
                 sx={{
                   pl: 0,
                 }}
               >
-                <Link
-                  {...(listItem.path.includes("#")
-                    ? { href: listItem.path }
-                    : { component: RouterLink, to: listItem.path })}
-                  sx={{
-                    textDecoration: "none",
-                    color: "rgb(194, 197, 219)",
-                  }}
-                >
+                <Link to={link.to}>
                   <ListItemText
-                    primary={listItem.text}
+                    primary={link.name}
                     sx={{
                       "&:hover": {
                         color: textTHeme,
@@ -209,19 +226,20 @@ const Footer = () => {
               fontWeight: "600",
             }}
           >
-            Our Services
+            {t("footer.ourServices")}{" "}
           </Typography>
           <List>
-            {qurServices.map((listItem, listIndex) => (
+            {services.map((service, index) => (
               <ListItem
-                key={listIndex}
+                key={index}
                 sx={{
                   pl: 0,
                   color: "rgb(194, 197, 219)",
                 }}
               >
-                <ListItemText
-                  primary={listItem.text}
+                <Link to={service.to}>{service.name}</Link>
+                {/* <ListItemText
+                  primary={service.text}
                   sx={{
                     "&:hover": {
                       color: textTHeme,
@@ -229,7 +247,7 @@ const Footer = () => {
                       transition: "width 0.3s ease-in-out",
                     },
                   }}
-                />
+                /> */}
               </ListItem>
             ))}
           </List>
@@ -247,33 +265,33 @@ const Footer = () => {
               fontWeight: "600",
             }}
           >
-            Contact Us
+            {t("footer.contactUs")}{" "}
           </Typography>
           <List>
-            {ContactUs.map((listItem, listIndex) => (
+            {contactInfo.map((contact, index) => (
               <ListItem
-                key={listIndex}
+                key={index}
                 sx={{
                   gap: 1,
                   pl: 0,
                   color: "rgb(194, 197, 219)",
+                  textAlign: textAlignValue,
                 }}
               >
                 <ListItemIcon sx={{ minWidth: "auto", color: "inherit" }}>
-                  {listItem.icon}
+                  {contact.icon}{" "}
                 </ListItemIcon>
-                <ListItemText primary={listItem.text} />
+                <ListItemText primary={contact.text} />
               </ListItem>
             ))}
             <List>
-              {socialMediaSites.map((listItem, listIndex) => (
+              {socialMediaSites.map((site, index) => (
                 <Link
-                  component={RouterLink}
-                  to={listItem.path}
+                  to={site.path}
                   color="#fff"
                 >
                   <ListItemIcon
-                    key={listIndex}
+                    key={index}
                     sx={{
                       minWidth: "40px",
                       height: "40px",
@@ -289,7 +307,7 @@ const Footer = () => {
                       },
                     }}
                   >
-                    {listItem.icon}
+                    {site.icon}
                   </ListItemIcon>
                 </Link>
               ))}
@@ -301,7 +319,7 @@ const Footer = () => {
         color="rgb(194, 197, 219)"
         sx={{ textAlign: "center" }}
       >
-        © 2024 Skyline Business Technology. All rights reserved. Designed with
+        © {new Date().getFullYear()}
         <Typography
           component="span"
           color="#fff"
