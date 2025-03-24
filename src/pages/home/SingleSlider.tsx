@@ -1,13 +1,35 @@
 import { Box, Container, Stack, Typography } from "@mui/material";
 import theme from "../../../public/theme/theme.ts";
 import hero from "../../assets/images/hero_right.png";
-// import shape from "../../assets/images/top-left-shape.png";
 import CustomButton from "../../components/CustomButton.tsx";
 import { motion } from "motion/react";
+import { useTranslation } from "react-i18next";
+import { useTypewriter } from "react-simple-typewriter";
+
 const bgTheme = theme.palette.primary.main;
 const sTextTheme = theme.palette.text.secondary;
 
 const SingleSlider = () => {
+  const { t, i18n } = useTranslation();
+
+  const [text] = useTypewriter({
+    words: [t("slider.title")], // جلب العنوان من ملفات الترجمة
+    loop: true,
+    typeSpeed: 100,
+    deleteSpeed: 50,
+    delaySpeed: 1000,
+  });
+
+  const highlightText = (text: string) => {
+    return text.replace(
+      "Skyline",
+      "<span style='color: #F067FF;font-size:55px'>Skyline</span>"
+    );
+  };
+
+  // تحديد اتجاه النص بناءً على اللغة المختارة
+  const textAlignValue = i18n.dir() === "rtl" ? "right" : "left";
+
   return (
     <Box
       component="section"
@@ -15,9 +37,9 @@ const SingleSlider = () => {
     >
       <Container>
         <Stack
-          direction={"row"}
-          alignItems={"center"}
-          sx={{ overflow: "hidden" }}
+          direction={{ xs: "column", md: "row" }}
+          alignItems="center"
+          sx={{ overflow: "hidden", textAlign: textAlignValue }}
         >
           <motion.section
             initial={{ x: -500 }}
@@ -30,20 +52,31 @@ const SingleSlider = () => {
                 color={sTextTheme}
                 mb={2}
               >
-                Best provider of advanced technology and automation systems
-                services
+                {t("slider.description")}
               </Typography>
-              <Typography
-                variant="h1"
+              <Box
                 sx={{
-                  fontWeight: "bold",
-                  color: "#fff",
-                  mb: 4,
-                  fontSize: { xs: "30px", sm: "50px", lg: "70px" },
+                  minHeight: {
+                    xs: "230px",
+                    sm: "140px",
+                    md: "230px",
+                    lg: "120px",
+                  },
                 }}
               >
-                Skyline Business Technology Company{" "}
-              </Typography>
+                <Typography
+                  variant="h1"
+                  sx={{
+                    fontWeight: "bold",
+                    color: "#fff",
+                    mb: 4,
+                    fontSize: "45px",
+                  }}
+                  dangerouslySetInnerHTML={{
+                    __html: highlightText(text),
+                  }}
+                />
+              </Box>
               <Typography
                 sx={{
                   color: "#A5A7C5",
@@ -51,16 +84,16 @@ const SingleSlider = () => {
                   fontSize: { xs: "16px", sm: "18px", lg: "20px" },
                 }}
               >
-                Boost your organization's operations with detailed system
-                analytics, marketing tools, security, data backups, and advanced
-                technical support all in one place.
+                {t("slider.paragraph")}
               </Typography>
+
               <CustomButton
-                text="Start with us"
+                text={t("slider.button")}
                 icon={null}
               />
             </Box>
           </motion.section>
+
           <motion.section
             initial={{ x: 500 }}
             animate={{ x: 0 }}
@@ -74,7 +107,6 @@ const SingleSlider = () => {
               sx={{ display: { xs: "none", md: "block" } }}
             />
           </motion.section>
-        
         </Stack>
       </Container>
     </Box>
