@@ -11,8 +11,10 @@ import TranslateIcon from "@mui/icons-material/Translate";
 import { useTranslation } from "react-i18next";
 import Cookies from "js-cookie";
 import { Box } from "@mui/material";
+import theme from "../../public/theme/theme";
 
 const options = ["Arabic", "English"];
+const secondaryLightTheme = theme.palette.secondary.light;
 
 export default function SplitButton() {
   const { i18n } = useTranslation();
@@ -68,7 +70,7 @@ export default function SplitButton() {
           <Button
             onClick={handleClick}
             sx={{
-              border: "1px solid #F067FF",
+              border: `1px solid ${secondaryLightTheme}`,
               color: "#fff",
               textTransform: "capitalize",
               fontSize: "16px",
@@ -85,7 +87,7 @@ export default function SplitButton() {
             aria-haspopup="menu"
             onClick={handleToggle}
             sx={{
-              border: "1px solid #F067FF",
+              border: `1px solid ${secondaryLightTheme}`,
               color: "#fff",
               px: { xs: 1, sm: 1 },
             }}
@@ -122,6 +124,7 @@ export default function SplitButton() {
                       fontSize: "32px",
                       display: "flex",
                       flexDirection: "column",
+                      color: secondaryLightTheme,
                     }}
                   >
                     {options.map((option, index) => (

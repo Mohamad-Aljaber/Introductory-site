@@ -6,8 +6,11 @@ import { motion } from "motion/react";
 import { useTranslation } from "react-i18next";
 import { useTypewriter } from "react-simple-typewriter";
 
-const bgTheme = theme.palette.primary.main;
-const sTextTheme = theme.palette.text.secondary;
+const primaryTheme = theme.palette.primary.main;
+const secondaryTheme = theme.palette.secondary.main;
+const secondaryLightTheme = theme.palette.secondary.light;
+
+// const sTextTheme = theme.palette.text.secondary;
 
 const SingleSlider = () => {
   const { t, i18n } = useTranslation();
@@ -23,7 +26,7 @@ const SingleSlider = () => {
   const highlightText = (text: string) => {
     return text.replace(
       "Skyline",
-      "<span style='color: #F067FF;font-size:55px'>Skyline</span>"
+      `<span style='color: ${secondaryLightTheme};font-size:55px'>Skyline</span>`
     );
   };
 
@@ -33,7 +36,7 @@ const SingleSlider = () => {
   return (
     <Box
       component="section"
-      sx={{ p: 3, backgroundColor: bgTheme, pb: 6 }}
+      sx={{ p: 3, backgroundColor: primaryTheme, pb: 6 }}
     >
       <Container>
         <Stack
@@ -49,7 +52,7 @@ const SingleSlider = () => {
             <Box>
               <Typography
                 variant="body1"
-                color={sTextTheme}
+                color={secondaryTheme}
                 mb={2}
               >
                 {t("slider.description")}

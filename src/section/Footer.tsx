@@ -23,8 +23,10 @@ import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import XIcon from "@mui/icons-material/X";
 import { useTranslation } from "react-i18next";
 // import { useState } from "react";
+const primaryTheme = theme.palette.primary.main;
 const secondaryTheme = theme.palette.secondary.main;
-const textTHeme = theme.palette.text.primary;
+const secondaryLightTheme = theme.palette.secondary.light;
+
 const Footer = () => {
   const { t, i18n } = useTranslation();
   // const [email, setEmail] = useState("");
@@ -102,7 +104,7 @@ const Footer = () => {
     <Box
       sx={{
         p: 3,
-        backgroundColor: secondaryTheme,
+        backgroundColor: primaryTheme,
         py: 10,
         pt: 15,
         color: "#fff",
@@ -129,8 +131,9 @@ const Footer = () => {
             sx={{
               fontSize: { xs: "18px", sm: "20px", md: "22px" },
               fontWeight: "600",
-              mb: 4,
+              mb: 1.5,
               lineHeight: 1.5,
+              color: secondaryTheme,
             }}
           >
             {t("footer.subscribeNewsletter")}{" "}
@@ -160,7 +163,7 @@ const Footer = () => {
                   borderRadius: "10px",
                 },
                 "&.Mui-focused fieldset": {
-                  borderColor: "rgba(255, 255, 255, 1)",
+                  borderColor: secondaryLightTheme,
                 },
                 color: "rgba(255, 255, 255, 0.6)",
               },
@@ -185,6 +188,7 @@ const Footer = () => {
             sx={{
               fontSize: { xs: "20px", sm: "22px", md: "24px" },
               fontWeight: "600",
+              color: secondaryTheme,
             }}
           >
             {t("footer.quickLinks")}{" "}
@@ -197,12 +201,16 @@ const Footer = () => {
                   pl: 0,
                 }}
               >
-                <Link to={link.to}>
+                <Link
+                  to={link.to}
+                  style={{ textDecoration: "none" }}
+                >
                   <ListItemText
                     primary={link.name}
                     sx={{
+                      color: "#fff",
                       "&:hover": {
-                        color: textTHeme,
+                        color: secondaryLightTheme,
                         textDecoration: "underline",
                         transition: "width 0.5s ease-in-out",
                       },
@@ -224,6 +232,7 @@ const Footer = () => {
             sx={{
               fontSize: { xs: "20px", sm: "22px", md: "24px" },
               fontWeight: "600",
+              color: secondaryTheme,
             }}
           >
             {t("footer.ourServices")}{" "}
@@ -237,7 +246,12 @@ const Footer = () => {
                   color: "rgb(194, 197, 219)",
                 }}
               >
-                <Link to={service.to}>{service.name}</Link>
+                <Link
+                  to={service.to}
+                  style={{ textDecoration: "none", color: "#fff" }}
+                >
+                  {service.name}
+                </Link>
                 {/* <ListItemText
                   primary={service.text}
                   sx={{
@@ -263,6 +277,7 @@ const Footer = () => {
             sx={{
               fontSize: { xs: "20px", sm: "22px", md: "24px" },
               fontWeight: "600",
+              color: secondaryTheme,
             }}
           >
             {t("footer.contactUs")}{" "}
@@ -274,7 +289,7 @@ const Footer = () => {
                 sx={{
                   gap: 1,
                   pl: 0,
-                  color: "rgb(194, 197, 219)",
+                  color: "#fff",
                   textAlign: textAlignValue,
                 }}
               >
@@ -289,6 +304,7 @@ const Footer = () => {
                 <Link
                   to={site.path}
                   color="#fff"
+                  target="_blank"
                 >
                   <ListItemIcon
                     key={index}
@@ -299,11 +315,11 @@ const Footer = () => {
                       mr: 1,
                       borderRadius: "100%",
                       border: "1px solid white",
-                      color: "inherit",
+                      color: "#fff",
                       justifyContent: "center",
                       alignItems: "center",
                       "&:hover": {
-                        backgroundColor: textTHeme,
+                        backgroundColor: secondaryLightTheme,
                       },
                     }}
                   >
@@ -331,11 +347,12 @@ const Footer = () => {
         <Typography
           component="span"
           color="#fff"
-          sx={{ fontWeight: "bold" }}
+          sx={{ fontWeight: "bold", color: secondaryLightTheme }}
         >
           {" "}
           Skyline
         </Typography>
+        - All rights reserved
       </Typography>
     </Box>
   );

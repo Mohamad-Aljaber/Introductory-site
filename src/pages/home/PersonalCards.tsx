@@ -5,11 +5,14 @@ import { Autoplay, Navigation } from "swiper/modules";
 import "swiper/css";
 import { ArrowBack, ArrowForward } from "@mui/icons-material";
 import { useTranslation } from "react-i18next";
+import theme from "../../../public/theme/theme";
 interface Testimonial {
   id: number;
   text: string;
   role: string;
 }
+const primaryTheme = theme.palette.primary.main;
+const secondaryTheme = theme.palette.secondary.main;
 
 const PersonalCards = () => {
   const { t } = useTranslation();
@@ -50,9 +53,6 @@ const PersonalCards = () => {
     ]);
   }, [t]);
 
-  const primaryTheme = "#2D0A31";
-  const secondaryTheme = "#4c1e51";
-
   return (
     <Box
       sx={{
@@ -75,7 +75,7 @@ const PersonalCards = () => {
             p: 1.5,
             position: "absolute",
             top: "50%",
-            left: { md: "3%" },
+            left: { md: "0%" },
             zIndex: 3,
             color: "#fff",
             transform: "translateY(-50%)",
@@ -93,7 +93,7 @@ const PersonalCards = () => {
             position: "absolute",
             p: 1.5,
             top: "50%",
-            right: { md: "3%" },
+            right: { md: "0%" },
             zIndex: 3,
             color: "#fff",
             transform: "translateY(-50%)",

@@ -19,18 +19,18 @@ import { useTranslation } from "react-i18next";
 
 const bgTheme = theme.palette.primary.main;
 const secondaryTheme = theme.palette.secondary.main;
-const textTheme = theme.palette.text.primary;
+const secondaryLightTheme = theme.palette.secondary.light;
 
 const effectHoverStyles = {
   "&:hover": {
-    color: textTheme,
+    color: secondaryLightTheme,
   },
   "&::after": {
     content: '""',
     position: "absolute",
     width: "0%",
     height: "2px",
-    backgroundColor: textTheme,
+    backgroundColor: secondaryLightTheme,
     bottom: 0,
     left: 0,
     transition: "width 0.3s ease-in-out",
@@ -48,7 +48,7 @@ const Header = () => {
   // Translated navigation items
   const navItems = [
     { text: t("menu.home"), path: "/" },
-    { text: t("menu.help"), path: "/#help" },
+    // { text: t("menu.help"), path: "/#help" },
     { text: t("menu.business_gallery"), path: "Business-Gallery" },
     { text: t("menu.contact"), path: "contact" },
   ];
