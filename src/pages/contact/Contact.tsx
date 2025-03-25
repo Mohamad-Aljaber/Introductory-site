@@ -1,6 +1,13 @@
+import ContactForm from "./ContactForm";
+import Slider from "./Slider";
 
 const Contact = () => {
-  return <div>Contact</div>;
+  return (
+    <>
+      <Slider />
+      <ContactForm />
+    </>
+  );
 };
 
 export default Contact;
