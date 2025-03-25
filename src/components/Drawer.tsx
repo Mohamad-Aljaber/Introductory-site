@@ -2,13 +2,13 @@ import React from "react";
 import {
   Box,
   Drawer,
-  Link,
   List,
   ListItem,
   ListItemButton,
   ListItemText,
 } from "@mui/material";
 import theme from "../../public/theme/theme";
+import { Link } from "react-router-dom";
 const bgTheme = theme.palette.primary.main;
 interface NavItem {
   text: string;
@@ -59,8 +59,8 @@ const DrawerComponent: React.FC<DrawerComponentProps> = ({
               disablePadding
             >
               <Link
-                href={item.path}
-                sx={{
+                to={item.path}
+                style={{
                   textDecoration: "none",
                   ...effectHoverStyles,
                   color: "#fff",
