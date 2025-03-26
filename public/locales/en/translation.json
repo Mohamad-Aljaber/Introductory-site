@@ -183,16 +183,16 @@
     }
   },
   "company": {
-    "about": "Our company offers integrated and innovative technological solutions that enhance system efficiency and performance, with a focus on integrating artificial intelligence to analyze data and improve operational processes with high accuracy. We are committed to developing flexible and seamless projects that meet the diverse needs of our clients, while providing modern and elegant user interfaces that ensure a superior and smooth user experience. We provide fast and effective customer support services to ensure uninterrupted operations, with specialized teams responding promptly to customer requests and solving technical issues efficiently. We also place great importance on regular maintenance and continuous updates, ensuring the security and stability of systems and applications.",
+    "about": " We provide innovative and integrated technological solutions that enhance system efficiency and performance, focusing on AI integration to analyze data and improve processes with high accuracy. We are committed to developing flexible and seamless projects that meet diverse client needs, offering modern and elegant user interfaces for an exceptional user experience. Our fast and effective customer support ensures smooth operations, with specialized teams responding promptly to customer requests and resolving technical issues efficiently. We also prioritize regular maintenance and continuous updates to ensure the security and stability of systems and applications. ",
     "commitment": "With our commitment to innovation and modern technologies, we offer smart technological solutions that help our clients grow their businesses and achieve success in an ever-evolving digital world.",
     "features": {
-      "ai_integration": "--    Integrating artificial intelligence into systems to enhance efficiency and accuracy.",
-      "flexible_projects": "--    Developing flexible and seamless projects that meet diverse customer needs.",
-      "modern_ui": "--    Designing modern, beautiful, and smooth user interfaces to ensure an outstanding user experience.",
-      "customer_support": "--    Providing rapid customer response services and immediate attention to their needs.",
-      "maintenance_support": "--    Offering maintenance, technical, and support services to ensure system stability and continuity.",
-      "continuous_updates": "--    Continuous updates to ensure the security and efficiency of systems and applications.",
-      "modern_tech": "-- Utilizing modern technologies to deliver innovative solutions that support the growth and success of our clients."
+      "ai_integration": "     Integrating artificial intelligence into systems to enhance efficiency and accuracy.",
+      "flexible_projects": "     Developing flexible and seamless projects that meet diverse customer needs.",
+      "modern_ui": "     Designing modern, beautiful, and smooth user interfaces to ensure an outstanding user experience.",
+      "customer_support": "     Providing rapid customer response services and immediate attention to their needs.",
+      "maintenance_support": "     Offering maintenance, technical, and support services to ensure system stability and continuity.",
+      "continuous_updates": "     Continuous updates to ensure the security and efficiency of systems and applications.",
+      "modern_tech": "  Utilizing modern technologies to deliver innovative solutions that support the growth and success of our clients."
     }
   }
 }

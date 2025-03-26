@@ -17,7 +17,7 @@ const TagCloudWidget: React.FC = () => {
   ];
 
   return (
-    <Box sx={{ display: { xs: "none", lg: "block" }, mt: 4 }}>
+    <Box sx={{ display: { xs: "none", md: "block" }, mt: 4 }}>
       <Typography
         variant="h6"
         sx={{ color: "#2d2d2d", fontWeight: "bold", mb: 2 }}

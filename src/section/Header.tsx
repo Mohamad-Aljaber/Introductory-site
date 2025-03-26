@@ -42,9 +42,8 @@ const effectHoverStyles = {
 const Header = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [isSticky, setIsSticky] = useState(false);
-  const { t } = useTranslation(); // 🔹 Initialize useTranslation()
+  const { t } = useTranslation(); 
 
-  // Translated navigation items
   const navItems = [
     { text: t("menu.home"), path: "/" },
     // { text: t("menu.help"), path: "/#help" },

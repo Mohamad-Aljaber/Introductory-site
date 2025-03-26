@@ -56,7 +56,6 @@ const PersonalCards = () => {
   return (
     <Box
       sx={{
-        pl: { xs: 3, md: 0 },
         backgroundColor: primaryTheme,
         py: { xs: 5, sm: 7, md: 10 },
         pt: { xs: 10, sm: 12, md: 15 },

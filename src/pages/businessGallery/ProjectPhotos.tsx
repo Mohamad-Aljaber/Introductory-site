@@ -7,10 +7,10 @@ import blog4 from "../../assets/images/blog/single_blog_4.png";
 import blog5 from "../../assets/images/blog/single_blog_5.png";
 const ProjectPhotos: React.FC = () => {
   // مصفوفة من الصور التي سيتم عرضها
-  const photos = [blog1, blog3,blog2 , blog4, blog5, blog3];
+  const photos = [blog1, blog3, blog2, blog4, blog5, blog3];
 
   return (
-    <Box sx={{ display: { xs: "none", lg: "block" }, mt: 4 }}>
+    <Box sx={{ display: { xs: "none", md: "block" }, mt: 4 }}>
       <Typography
         variant="h6"
         sx={{ color: "#2d2d2d", fontWeight: "bold", mb: 2 }}
