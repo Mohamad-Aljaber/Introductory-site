@@ -5,8 +5,11 @@ import {
   ListItem,
   ListItemIcon,
   ListItemText,
-  TextField,
   Typography,
+  TextField,
+  InputAdornment,
+  FormHelperText,
+  FormControl,
 } from "@mui/material";
 import theme from "../../public/theme/theme.ts";
 
@@ -22,32 +25,14 @@ import InstagramIcon from "@mui/icons-material/Instagram";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import XIcon from "@mui/icons-material/X";
 import { useTranslation } from "react-i18next";
-// import { useState } from "react";
+import { useState } from "react";
+
 const primaryTheme = theme.palette.primary.main;
 const secondaryTheme = theme.palette.secondary.main;
 const secondaryLightTheme = theme.palette.secondary.light;
 
 const Footer = () => {
   const { t, i18n } = useTranslation();
-  // const [email, setEmail] = useState("");
-
-  // const handleSubmit = async (event: React.FormEvent) => {
-  //   event.preventDefault();
-  //   const formData = new FormData();
-  //   formData.append("access_key", "99e963cc-8628-41ac-9978-871a879f1530");
-  //   formData.append("email", email);
-
-  //   const response = await fetch("https://api.web3forms.com/submit", {
-  //     method: "POST",
-  //     body: formData,
-  //   });
-
-  //   const result = await response.json();
-  //   if (result.success) {
-  //     setEmail("");
-  //   }
-  // };
-
   const contactInfo = [
     {
       icon: <PhoneIcon style={{ color: "#fff", fontSize: "20px" }} />,
@@ -91,14 +76,47 @@ const Footer = () => {
   ];
 
   const services = [
-    { name: t("footer.servicesList.0.name"), to: "/ai-powered-systems" },
-    { name: t("footer.servicesList.1.name"), to: "/cloud-services" },
-    { name: t("footer.servicesList.2.name"), to: "/technical-support" },
-    { name: t("footer.servicesList.3.name"), to: "/technology-consulting" },
-    { name: t("footer.servicesList.4.name"), to: "/marketing-media" },
+    { name: t("footer.servicesList.0.name") },
+    { name: t("footer.servicesList.1.name") },
+    { name: t("footer.servicesList.2.name") },
+    { name: t("footer.servicesList.3.name") },
+    { name: t("footer.servicesList.4.name") },
   ];
 
   const textAlignValue = i18n.dir() === "rtl" ? "right" : "left";
+  const [email, setEmail] = useState("");
+  const [emailError, setEmailError] = useState(false);
+  const [emailHelperText, setEmailHelperText] = useState("");
+
+  const handleSubmit = async (event: React.FormEvent) => {
+    event.preventDefault();
+
+    // Check if the email is valid
+    const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+    if (!emailRegex.test(email)) {
+      setEmailError(true);
+      setEmailHelperText("Please enter a valid email address.");
+      return;
+    }
+
+    // Reset error if email is valid
+    setEmailError(false);
+    setEmailHelperText("");
+
+    const formData = new FormData();
+    formData.append("access_key", "425336b9-defe-434d-8cfd-add57fe9e769");
+    formData.append("email", email);
+
+    const response = await fetch("https://api.web3forms.com/submit", {
+      method: "POST",
+      body: formData,
+    });
+
+    const result = await response.json();
+    if (result.success) {
+      setEmail("");
+    }
+  };
 
   return (
     <Box
@@ -138,43 +156,60 @@ const Footer = () => {
           >
             {t("footer.subscribeNewsletter")}{" "}
           </Typography>
-          <Typography color="rgba(255, 255, 255, 0.6)">
-            {t("footer.stayUpdated")}
-          </Typography>
-          <TextField
-            variant="outlined"
-            placeholder="Your email address"
-            sx={{
-              borderRadius: "10px",
-              outline: "none",
-              textTransform: "none",
-              fontSize: "16px",
-              color: "rgba(255, 255, 255, 0.6)",
-              border: "1px solid rgba(255, 255, 255, 0.6)",
-              width: "100%",
-              my: 3,
-              "& .MuiOutlinedInput-root": {
-                "& fieldset": {
-                  borderColor: "rgba(255, 255, 255, 0.6)",
+          <Typography color="fff">{t("footer.stayUpdated")}</Typography>
+          <Box
+            component="form"
+            onSubmit={handleSubmit}
+            noValidate
+          >
+            <FormControl
+              fullWidth
+              error={emailError}
+              sx={{ mb: 2 }}
+            >
+              <TextField
+                type="email"
+                id="newsletter-form-email"
+                placeholder={t("footer.subscribeNewsletter")}
+                value={email}
+                sx={{
+                  border: `1px solid ${secondaryTheme}`,
+                  my: 2,
                   borderRadius: "10px",
-                },
-                "&:hover fieldset": {
-                  borderColor: "rgba(255, 255, 255, 0.8)",
-                  borderRadius: "10px",
-                },
-                "&.Mui-focused fieldset": {
-                  borderColor: secondaryLightTheme,
-                },
-                color: "rgba(255, 255, 255, 0.6)",
-              },
-            }}
-          />
-
-          <CustomButton
-            text={"Subscribe"}
-            icon={null}
-            width={"100%"}
-          />
+                  color: "#fff",
+                  "& .MuiInputBase-input": {
+                    color: "#fff",
+                  },
+                  "& .MuiInputLabel-root": {
+                    color: "#fff",
+                  },
+                  "& .MuiOutlinedInput-root": {
+                    "&:hover fieldset": {
+                      borderColor: secondaryTheme, // تغيير لون الحافة عند المرور بالفأرة
+                    },
+                    "&.Mui-focused fieldset": {
+                      borderColor: secondaryTheme, // تغيير لون الحافة عند التركيز
+                      borderRadius: "10px", // نفس الـ borderRadius عند التركيز
+                    },
+                  },
+                }}
+                onChange={e => setEmail(e.target.value)}
+                InputProps={{
+                  startAdornment: (
+                    <InputAdornment position="start">
+                      <EmailIcon style={{ color: "#fff" }} />
+                    </InputAdornment>
+                  ),
+                }}
+              />
+              {emailError && <FormHelperText>{emailHelperText}</FormHelperText>}
+            </FormControl>
+            <CustomButton
+              text={"Subscribe"}
+              icon={null}
+              width={"100%"}
+            />
+          </Box>
         </Grid>
         <Grid
           item
@@ -211,7 +246,7 @@ const Footer = () => {
                       color: "#fff",
                       "&:hover": {
                         color: secondaryLightTheme,
-                        textDecoration: "underline",
+
                         transition: "width 0.5s ease-in-out",
                       },
                     }}
@@ -243,25 +278,10 @@ const Footer = () => {
                 key={index}
                 sx={{
                   pl: 0,
-                  color: "rgb(194, 197, 219)",
+                  color: "#fff",
                 }}
               >
-                <Link
-                  to={service.to}
-                  style={{ textDecoration: "none", color: "#fff" }}
-                >
-                  {service.name}
-                </Link>
-                {/* <ListItemText
-                  primary={service.text}
-                  sx={{
-                    "&:hover": {
-                      color: textTHeme,
-                      textDecoration: "underline",
-                      transition: "width 0.3s ease-in-out",
-                    },
-                  }}
-                /> */}
+                {service.name}
               </ListItem>
             ))}
           </List>
@@ -293,10 +313,35 @@ const Footer = () => {
                   textAlign: textAlignValue,
                 }}
               >
-                <ListItemIcon sx={{ minWidth: "auto", color: "inherit" }}>
-                  {contact.icon}{" "}
-                </ListItemIcon>
-                <ListItemText primary={contact.text} />
+                <Link
+                  to={contact.to}
+                  style={{
+                    color: "#fff",
+                    textDecoration: "none",
+                    display: "flex",
+                    gap: "10px",
+                    justifyContent: "center",
+                    alignItems: "center",
+                  }}
+                  target="_blank"
+                >
+                  <ListItemIcon
+                    sx={{
+                      minWidth: "auto",
+                      color: "inherit",
+                    }}
+                  >
+                    {contact.icon}{" "}
+                  </ListItemIcon>
+                  <ListItemText
+                    primary={contact.text}
+                    sx={{
+                      minWidth: "auto",
+                      "&:hover": { color: secondaryLightTheme },
+                      transition: "width 0.5s ease-in-out",
+                    }}
+                  />
+                </Link>
               </ListItem>
             ))}
             <List>
@@ -305,9 +350,9 @@ const Footer = () => {
                   to={site.path}
                   color="#fff"
                   target="_blank"
+                  key={index}
                 >
                   <ListItemIcon
-                    key={index}
                     sx={{
                       minWidth: "40px",
                       height: "40px",

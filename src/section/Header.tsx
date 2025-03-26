@@ -17,8 +17,7 @@ import { Link as RouterLink } from "react-router-dom";
 import SplitButton from "../components/languageButtom";
 import { useTranslation } from "react-i18next";
 
-const bgTheme = theme.palette.primary.main;
-const secondaryTheme = theme.palette.secondary.main;
+const primaryTheme = theme.palette.primary.main;
 const secondaryLightTheme = theme.palette.secondary.light;
 
 const effectHoverStyles = {
@@ -77,7 +76,7 @@ const Header = () => {
         sx={{
           position: isSticky ? "fixed" : "static",
           py: 2,
-          backgroundColor: isSticky ? secondaryTheme : bgTheme,
+          backgroundColor: primaryTheme,
           top: isSticky ? 0 : "-300px",
           transition: "all 1s ease-in-out",
         }}

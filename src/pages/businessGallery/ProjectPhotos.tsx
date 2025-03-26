@@ -3,9 +3,11 @@ import { Box, Grid, Typography } from "@mui/material";
 import blog1 from "../../assets/images/blog/single_blog_1.png";
 import blog2 from "../../assets/images/blog/single_blog_2.png";
 import blog3 from "../../assets/images/blog/single_blog_3.png";
+import blog4 from "../../assets/images/blog/single_blog_4.png";
+import blog5 from "../../assets/images/blog/single_blog_5.png";
 const ProjectPhotos: React.FC = () => {
   // مصفوفة من الصور التي سيتم عرضها
-  const photos = [blog1, blog3,blog2 , blog1, blog2, blog3];
+  const photos = [blog1, blog3,blog2 , blog4, blog5, blog3];
 
   return (
     <Box sx={{ display: { xs: "none", lg: "block" }, mt: 4 }}>

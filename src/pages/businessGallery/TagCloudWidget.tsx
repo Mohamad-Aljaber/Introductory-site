@@ -26,7 +26,7 @@ const TagCloudWidget: React.FC = () => {
       </Typography>
       <Stack
         direction="row"
-        spacing={1}
+        gap={2}
         flexWrap="wrap"
       >
         {tags.map((tag, index) => (
@@ -35,13 +35,9 @@ const TagCloudWidget: React.FC = () => {
             label={tag}
             clickable
             sx={{
-              backgroundColor: "#f5f5f5",
-              color: "#333",
+              backgroundColor: primaryTheme,
+              color: secondaryLightTheme,
               fontWeight: "bold",
-              "&:hover": {
-                backgroundColor: primaryTheme,
-                color: secondaryLightTheme,
-              },
             }}
           />
         ))}

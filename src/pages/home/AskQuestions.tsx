@@ -124,6 +124,7 @@ const AskQuestions = () => {
           <CustomButton
             text={t("askQuestions.buttonText")}
             icon={null}
+            link="/contact"
           />
         </Stack>
       </Container>

@@ -1,19 +1,13 @@
 import React from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { useTranslation } from "react-i18next";
-import {
-  TextField,
-  Button,
-  Grid,
-  Box,
-  Typography,
-  Link,
-  Stack,
-} from "@mui/material";
+import { TextField, Grid, Box, Typography, Link, Stack } from "@mui/material";
 import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
 import PhoneIphoneOutlinedIcon from "@mui/icons-material/PhoneIphoneOutlined";
 import EmailOutlinedIcon from "@mui/icons-material/EmailOutlined";
 import theme from "../../../public/theme/theme";
+import CustomButton from "../../components/CustomButton";
+
 type FormData = {
   message: string;
   name: string;
@@ -33,8 +27,8 @@ const ContactForm: React.FC = () => {
 
   const onSubmit: SubmitHandler<FormData> = async data => {
     const requestData = {
-      access_key: "99e963cc-8628-41ac-9978-871a879f1530",
-      ...data,
+      access_key: "425336b9-defe-434d-8cfd-add57fe9e769",
+      ...data, 
     };
 
     try {
@@ -47,19 +41,20 @@ const ContactForm: React.FC = () => {
         body: JSON.stringify(requestData),
       });
 
-      const result = await response.json();
+      const result = await response.json(); 
 
       if (result.success) {
         alert("Message sent successfully!");
-        reset();
+        reset(); 
       } else {
         alert("Error sending message, please try again.");
       }
     } catch (error) {
       alert("Something went wrong, please try again.");
-      console.error(error);
+      console.error(error); // طباعة الخطأ في وحدة التحكم
     }
   };
+
   const secondaryTheme = theme.palette.secondary.main;
   const secondaryLightTheme = theme.palette.secondary.light;
 
@@ -155,18 +150,11 @@ const ContactForm: React.FC = () => {
                 item
                 xs={12}
               >
-                <Button
-                  type="submit"
-                  variant="contained"
-                  color="primary"
-                  fullWidth
-                  sx={{
-                    backgroundColor: secondaryTheme,
-                    "&:hover": { backgroundColor: secondaryLightTheme },
-                  }}
-                >
-                  {t("contact.send")}
-                </Button>
+                <CustomButton
+                  text={t("contact.send")}
+                  icon={null}
+                  width={"100%"}
+                />
               </Grid>
             </Grid>
           </form>
@@ -219,7 +207,6 @@ const ContactForm: React.FC = () => {
             direction={"row"}
             sx={{ mb: 3, gap: "20px" }}
           >
-            {" "}
             <EmailOutlinedIcon sx={{ color: secondaryTheme }} />
             <Box>
               <Typography variant="h6">

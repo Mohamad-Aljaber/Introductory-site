@@ -8,10 +8,33 @@ import BlogItem from "./BlogItem";
 import blog1 from "../../assets/images/blog/single_blog_1.png";
 import blog2 from "../../assets/images/blog/single_blog_2.png";
 import blog3 from "../../assets/images/blog/single_blog_3.png";
+import blog4 from "../../assets/images/blog/single_blog_4.png";
+import blog5 from "../../assets/images/blog/single_blog_5.png";
 const BlogSection: React.FC = () => {
   const { t, i18n } = useTranslation();
 
   const blogItemsData = [
+    {
+      imageSrc: blog5,
+      date: "2025",
+      month: "January",
+      titleKey: t("blog.storeTitle"),
+      descriptionKey: t("blog.storeDescription"),
+    },
+    {
+      imageSrc: blog4,
+      date: "2025",
+      month: "March",
+      titleKey: t("blog.storeTitle"),
+      descriptionKey: t("blog.storeDescription"),
+    },
+    {
+      imageSrc: blog3,
+      date: "2024",
+      month: "Apr",
+      titleKey: t("blog.storeTitle"),
+      descriptionKey: t("blog.storeDescription"),
+    },
     {
       imageSrc: blog1,
       date: "2024",
@@ -25,13 +48,6 @@ const BlogSection: React.FC = () => {
       month: "Mar",
       titleKey: t("blog.tawsellaStarTaxiTitle"),
       descriptionKey: t("blog.tawsellaStarTaxiDescription"),
-    },
-    {
-      imageSrc: blog3,
-      date: "2024",
-      month: "Apr",
-      titleKey: t("blog.storeTitle"),
-      descriptionKey: t("blog.storeDescription"),
     },
   ];
 

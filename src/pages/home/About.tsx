@@ -17,7 +17,7 @@ type AboutItem = {
   heading: string;
   text: string;
   images: string;
-  Direction: "row" | "row-reverse"; 
+  Direction: "row" | "row-reverse";
   List: { text: string; icon: JSX.Element }[];
 };
 const About: React.FC = () => {
@@ -28,7 +28,7 @@ const About: React.FC = () => {
       heading: t("about.title"),
       text: t("about.description"),
       images: about1,
-      Direction: "row", 
+      Direction: "row",
       List: [
         {
           text: t("about.points.systemDevelopment"),
@@ -84,6 +84,7 @@ const About: React.FC = () => {
             t("dedicatedSupport.phoneNumber")
           }
           icon={<PermPhoneMsgIcon />}
+          link="https://wa.me/+31637718553"
         />
       </Container>
     </Box>

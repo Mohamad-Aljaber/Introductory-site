@@ -93,6 +93,7 @@ const SingleSlider = () => {
               <CustomButton
                 text={t("slider.button")}
                 icon={null}
+                link="/contact"
               />
             </Box>
           </motion.section>
