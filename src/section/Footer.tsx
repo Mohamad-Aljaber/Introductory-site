@@ -70,9 +70,9 @@ const Footer = () => {
   const quickLinks = [
     { name: t("footer.quickLinksList.0.name"), to: "#aboutUs" },
     { name: t("footer.quickLinksList.1.name"), to: "/business-gallery" },
+    { name: t("footer.quickLinksList.4.name"), to: "/contact" },
     { name: t("footer.quickLinksList.2.name"), to: "#help" },
     { name: t("footer.quickLinksList.3.name"), to: "#services" },
-    { name: t("footer.quickLinksList.4.name"), to: "/contact" },
   ];
 
   const services = [
@@ -133,7 +133,7 @@ const Footer = () => {
         container
         spacing={3}
         sx={{
-          justifyContent: "space-around",
+          justifyContent: { xs: "start", sm: "space-around" },
           mb: 6,
           textAlign: textAlignValue,
         }}
@@ -141,8 +141,9 @@ const Footer = () => {
         <Grid
           item
           xs={12}
-          sm={3}
-          mb={3}
+          sm={5}
+          lg={3}
+          sx={{ minWidth: "250px" }}
         >
           <Typography
             variant="h3"
@@ -214,9 +215,9 @@ const Footer = () => {
         <Grid
           item
           xs={12}
-          sm={2}
-          mb={2}
-          sx={{ ml: { xs: 0, sm: 5 } }}
+          sm={5}
+          lg={2}
+          sx={{ minWidth: "250px" }}
         >
           <Typography
             variant="h3"
@@ -233,7 +234,7 @@ const Footer = () => {
               <ListItem
                 key={index}
                 sx={{
-                  pl: 0,
+                  p: 0,
                 }}
               >
                 <Link
@@ -259,8 +260,9 @@ const Footer = () => {
         <Grid
           item
           xs={12}
-          sm={3}
-          mb={2}
+          sm={5}
+          lg={2}
+          sx={{ minWidth: "250px" }}
         >
           <Typography
             variant="h3"
@@ -277,7 +279,7 @@ const Footer = () => {
               <ListItem
                 key={index}
                 sx={{
-                  pl: 0,
+                  p: 0,
                   color: "#fff",
                 }}
               >
@@ -289,8 +291,9 @@ const Footer = () => {
         <Grid
           item
           xs={12}
-          sm={3}
-          mb={2}
+          sm={5}
+          lg={2}
+          sx={{ minWidth: "250px" }}
         >
           <Typography
             variant="h3"
@@ -308,7 +311,7 @@ const Footer = () => {
                 key={index}
                 sx={{
                   gap: 1,
-                  pl: 0,
+                  p: 0,
                   color: "#fff",
                   textAlign: textAlignValue,
                 }}

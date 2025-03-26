@@ -141,21 +141,22 @@
     ]
   },
 
-
-
-
-
-
-
-  
   "Business": " Business Gallery",
   "blog": {
     "fsnCreditStoreTitle": "FSN Credit Store",
-    "fsnCreditStoreDescription": "A store for agents who provide credit recharge and mobile number reactivation services, where an integrated system is automated between FSN and the company’s authorized agents.",
-    "tawsellaStarTaxiTitle": "Tawsella StarTaxi management system with applications for user and driver",
-    "tawsellaStarTaxiDescription": "Mobile application (driver-user): A request is sent to obtain a service (transportation - car rental) from the company providing the services and enabling the driver to monitor the customer on the map. A chat can also be opened between the driver and the user. Control panel: To manage drivers and users and monitor drivers on the map permanently and effectively, in addition to an accounting section to adjust drivers' financial accounts and generate weekly and on-demand reports. In addition to many scheduled and distinctive operations in the back-end section that the average user does not see. In addition to many other features that support the project and increase its efficiency.",
-    "storeTitle": "Store",
-    "storeDescription": "An online store to sell different types of products and provide different services within an integrated and effective system."
+    "fsnCreditStoreDescription": "A dedicated store for authorized agents providing credit recharge and mobile number reactivation services, where an automated system seamlessly integrates FSN with agents for efficient operations.",
+
+    "tawsellaStarTaxiTitle": "Tawsella StarTaxi",
+    "tawsellaStarTaxiDescription": "A comprehensive system for managing transportation and car rental services, including a mobile application for users and drivers that enables service requests and real-time customer tracking on the map. The system also includes a chat feature between drivers and users, as well as an advanced control panel for managing drivers, monitoring trips, and handling financial accounts with automated reports to enhance operational efficiency.",
+
+    "storeTitle": "Store ",
+    "storeDescription": "An integrated online platform for selling various products and offering diverse services within a seamless and efficient system that meets customer needs.",
+
+    "accountingTitle": "Accounting ",
+    "accountingDescription": "A complete business management system for warehouses, factories, financial accounts, employees, and products across multiple company branches. It provides advanced solutions for inventory tracking, production process management, financial oversight, and HR operations, ensuring efficiency and strategic decision-making.",
+
+    "kafeelTitle": "Kafeel",
+    "kafeelDescription": "A charity organization in Syria dedicated to providing care and a dignified life for orphans. Kafeel offers educational, healthcare, and financial support for children who lost their families due to war and crises. Through sustainable development projects and the efforts of volunteers and donors, the organization works to secure a better future for orphaned children."
   },
   "contactUs": " Contact us",
   "contact": {
@@ -180,7 +181,6 @@
       "email": "skyline6710@gmail.com",
       "note": "Send us your query anytime!"
     }
-
   },
   "company": {
     "about": "Our company offers integrated and innovative technological solutions that enhance system efficiency and performance, with a focus on integrating artificial intelligence to analyze data and improve operational processes with high accuracy. We are committed to developing flexible and seamless projects that meet the diverse needs of our clients, while providing modern and elegant user interfaces that ensure a superior and smooth user experience. We provide fast and effective customer support services to ensure uninterrupted operations, with specialized teams responding promptly to customer requests and solving technical issues efficiently. We also place great importance on regular maintenance and continuous updates, ensuring the security and stability of systems and applications.",
