@@ -103,13 +103,24 @@ const SingleSlider = () => {
             animate={{ x: 0 }}
             transition={{ duration: 1 }}
           >
-            <Box
-              component="img"
-              src={hero}
-              alt="hero_right"
-              width={600}
-              sx={{ display: { xs: "none", md: "block" } }}
-            />
+            <motion.section
+              initial={{ y: 0 }}
+              animate={{ y: [0, -30, 0] }}
+              transition={{
+                duration: 2,
+                repeat: Infinity,
+                repeatType: "loop",
+                ease: "easeInOut",
+              }}
+            >
+              <Box
+                component="img"
+                src={hero}
+                alt="hero_right"
+                width={600}
+                sx={{ display: { xs: "none", md: "block" } }}
+              />
+            </motion.section>
           </motion.section>
         </Stack>
       </Container>
