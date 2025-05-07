@@ -1,18 +1,9 @@
-import {
-  Box,
-  Container,
-  Typography,
-  List,
-  ListItem,
-  ListItemText,
-  Grid,
-  Link,
-} from "@mui/material";
+import { Box, Container, Typography, Grid, Link } from "@mui/material";
 import SecurityIcon from "@mui/icons-material/Security";
 
 import { Link as RouterLink } from "react-router-dom"; // تأكد من استيراده
 
-import WorkOutlineOutlinedIcon from "@mui/icons-material/WorkOutlineOutlined";
+// import WorkOutlineOutlinedIcon from "@mui/icons-material/WorkOutlineOutlined";
 import CampaignOutlinedIcon from "@mui/icons-material/CampaignOutlined";
 import MemoryOutlinedIcon from "@mui/icons-material/MemoryOutlined";
 import SettingsOutlinedIcon from "@mui/icons-material/SettingsOutlined";
@@ -21,8 +12,6 @@ import { motion } from "framer-motion";
 import theme from "../../../public/theme/theme";
 import { useTranslation } from "react-i18next";
 import MobileFriendlyIcon from "@mui/icons-material/MobileFriendly";
-import CheckCircleIcon from "@mui/icons-material/CheckCircle";
-import FormatQuoteIcon from "@mui/icons-material/FormatQuote";
 
 const primaryTheme = theme.palette.primary.main;
 const secondaryLightTheme = theme.palette.secondary.light;
@@ -73,16 +62,16 @@ const Services = () => {
       title: t("features.security.title"),
       description: t("features.security.description"),
     },
-    {
-      key: "consulting",
-      icon: (
-        <WorkOutlineOutlinedIcon
-          sx={{ fontSize: 70, color: secondaryLightTheme, pb: 3 }}
-        />
-      ),
-      title: t("features.consulting.title"),
-      description: t("features.consulting.description"),
-    },
+    // {
+    //   key: "consulting",
+    //   icon: (
+    //     <WorkOutlineOutlinedIcon
+    //       sx={{ fontSize: 70, color: secondaryLightTheme, pb: 3 }}
+    //     />
+    //   ),
+    //   title: t("features.consulting.title"),
+    //   description: t("features.consulting.description"),
+    // },
     {
       key: "marketing",
       icon: (
@@ -111,7 +100,8 @@ const Services = () => {
       sx={{
         p: 3,
         backgroundColor: primaryTheme,
-        py: 13,
+        pt: 13,
+        pb: 6,
         color: "#fff",
         textAlign: textAlignValue,
       }}
@@ -194,219 +184,6 @@ const Services = () => {
             </Grid>
           ))}
         </Grid>
-        <Box
-          component="section"
-          sx={{ py: 8, textAlign: "center" }}
-        >
-          {" "}
-          <Typography
-            variant="h3"
-            fontWeight={700}
-            sx={{ mb: 4, fontSize: { xs: "26px", sm: "30px", lg: "36px" } }}
-          >
-            {t("service2")}
-          </Typography>
-          {/* وصف الشركة */}
-          <Typography
-            sx={{
-              fontSize: { xs: "20px", sm: "24px" },
-              mb: 2,
-              textAlign: textAlignValue,
-            }}
-          >
-            <FormatQuoteIcon sx={{ color: secondaryLightTheme }} />
-            {t("company.about")}
-            <FormatQuoteIcon sx={{ color: secondaryLightTheme }} />
-          </Typography>
-          <Typography
-            sx={{
-              fontSize: { xs: "20px", sm: "24px" },
-              mb: 4,
-              textAlign: textAlignValue,
-              color: secondaryLightTheme,
-            }}
-          >
-            {t("company.commitment")}
-          </Typography>
-          <List
-            sx={{
-              color: "#fff",
-              lineHeight: 2,
-              pb: 5,
-              textAlign: textAlignValue,
-              fontSize: { xs: "18px", sm: "24px", lg: "38px" },
-            }}
-          >
-            <ListItem
-              sx={{
-                textAlign: textAlignValue,
-                fontSize: { xs: "18px", sm: "24px", lg: "38px" },
-                display: "flex ",
-                gap: 2,
-                alignItems: "flex-start",
-                justifyContent: "center",
-              }}
-            >
-              <CheckCircleIcon
-                sx={{
-                  color: secondaryLightTheme,
-                  fontSize: "30px",
-                  mt: 1,
-                }}
-              />
-              <ListItemText
-                primary={t("company.features.ai_integration")}
-                primaryTypographyProps={{
-                  fontSize: { xs: "20px", sm: "24px" },
-                }}
-              />
-            </ListItem>
-            <ListItem
-              sx={{
-                textAlign: textAlignValue,
-                fontSize: { xs: "18px", sm: "24px", lg: "38px" },
-                display: "flex ",
-                gap: 2,
-                alignItems: "center",
-                justifyContent: "center",
-              }}
-            >
-              <CheckCircleIcon
-                sx={{
-                  color: secondaryLightTheme,
-                  fontSize: "30px",
-                  mt: 1,
-                }}
-              />
-              <ListItemText
-                primary={t("company.features.flexible_projects")}
-                primaryTypographyProps={{
-                  fontSize: { xs: "20px", sm: "24px" },
-                }}
-              />
-            </ListItem>
-            <ListItem
-              sx={{
-                textAlign: textAlignValue,
-                fontSize: { xs: "18px", sm: "24px", lg: "38px" },
-                display: "flex ",
-                gap: 2,
-                alignItems: "center",
-                justifyContent: "center",
-              }}
-            >
-              <CheckCircleIcon
-                sx={{
-                  color: secondaryLightTheme,
-                  fontSize: "30px",
-                  mt: 1,
-                }}
-              />
-              <ListItemText
-                primary={t("company.features.modern_ui")}
-                primaryTypographyProps={{
-                  fontSize: { xs: "20px", sm: "24px" },
-                }}
-              />
-            </ListItem>
-            <ListItem
-              sx={{
-                textAlign: textAlignValue,
-                fontSize: { xs: "18px", sm: "24px", lg: "38px" },
-                display: "flex ",
-                gap: 2,
-                alignItems: "center",
-                justifyContent: "center",
-              }}
-            >
-              <CheckCircleIcon
-                sx={{
-                  color: secondaryLightTheme,
-                  fontSize: "30px",
-                  mt: 1,
-                }}
-              />
-              <ListItemText
-                primary={t("company.features.customer_support")}
-                primaryTypographyProps={{
-                  fontSize: { xs: "20px", sm: "24px" },
-                }}
-              />
-            </ListItem>
-            <ListItem
-              sx={{
-                textAlign: textAlignValue,
-                fontSize: { xs: "18px", sm: "24px", lg: "38px" },
-                display: "flex ",
-                gap: 2,
-                alignItems: "center",
-                justifyContent: "center",
-              }}
-            >
-              <CheckCircleIcon
-                sx={{
-                  color: secondaryLightTheme,
-                  fontSize: "30px",
-                  mt: 1,
-                }}
-              />
-              <ListItemText
-                primary={t("company.features.maintenance_support")}
-                primaryTypographyProps={{
-                  fontSize: { xs: "20px", sm: "24px" },
-                }}
-              />
-            </ListItem>
-            <ListItem
-              sx={{
-                textAlign: textAlignValue,
-                fontSize: { xs: "18px", sm: "24px", lg: "38px" },
-                display: "flex ",
-                gap: 2,
-                alignItems: "center",
-                justifyContent: "center",
-              }}
-            >
-              <CheckCircleIcon
-                sx={{
-                  color: secondaryLightTheme,
-                  fontSize: "30px",
-                  mt: 1,
-                }}
-              />
-              <ListItemText
-                primary={t("company.features.continuous_updates")}
-                primaryTypographyProps={{
-                  fontSize: { xs: "20px", sm: "24px" },
-                }}
-              />
-            </ListItem>
-            <ListItem
-              sx={{
-                textAlign: textAlignValue,
-                fontSize: { xs: "18px", sm: "24px", lg: "38px" },
-                display: "flex ",
-                gap: 2,
-                alignItems: "center",
-                justifyContent: "center",
-              }}
-            >
-              <CheckCircleIcon
-                sx={{
-                  color: secondaryLightTheme,
-                  fontSize: "30px",
-                  mt: 1,
-                }}
-              />
-              <ListItemText
-                primary={t("company.features.modern_tech")}
-                primaryTypographyProps={{
-                  fontSize: { xs: "20px", sm: "24px" },
-                }}
-              />
-            </ListItem>
-          </List>
-        </Box>
       </Container>
     </Box>
   );
