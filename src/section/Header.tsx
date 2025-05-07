@@ -42,11 +42,11 @@ const effectHoverStyles = {
 const Header = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [isSticky, setIsSticky] = useState(false);
-  const { t } = useTranslation(); 
+  const { t } = useTranslation();
 
   const navItems = [
     { text: t("menu.home"), path: "/" },
-    // { text: t("menu.help"), path: "/#help" },
+    { text: t("menu.Hosting"), path: "Hosting" },
     { text: t("menu.business_gallery"), path: "Business-Gallery" },
     { text: t("menu.contact"), path: "contact" },
   ];

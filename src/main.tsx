@@ -6,6 +6,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Home from "./pages/home/Home.tsx";
 import Contact from "./pages/contact/Contact.tsx";
 import BusinessGallery from "./pages/businessGallery/BusinessGallery.tsx";
+import Hosting from "./pages/Hosting/Hosting.tsx";
 
 // وضع التوجيه خارج الـ StrictMode
 createRoot(document.getElementById("root")!).render(
@@ -23,6 +24,10 @@ createRoot(document.getElementById("root")!).render(
           <Route
             path="contact"
             element={<Contact />}
+          />
+          <Route
+            path="Hosting"
+            element={<Hosting />}
           />
           <Route
             path="Business-Gallery"

@@ -6,8 +6,12 @@ import {
   ListItem,
   ListItemText,
   Grid,
+  Link,
 } from "@mui/material";
 import SecurityIcon from "@mui/icons-material/Security";
+
+import { Link as RouterLink } from "react-router-dom"; // تأكد من استيراده
+
 import WorkOutlineOutlinedIcon from "@mui/icons-material/WorkOutlineOutlined";
 import CampaignOutlinedIcon from "@mui/icons-material/CampaignOutlined";
 import MemoryOutlinedIcon from "@mui/icons-material/MemoryOutlined";
@@ -19,6 +23,7 @@ import { useTranslation } from "react-i18next";
 import MobileFriendlyIcon from "@mui/icons-material/MobileFriendly";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import FormatQuoteIcon from "@mui/icons-material/FormatQuote";
+
 const primaryTheme = theme.palette.primary.main;
 const secondaryLightTheme = theme.palette.secondary.light;
 
@@ -34,6 +39,8 @@ const Services = () => {
           sx={{ fontSize: 70, color: secondaryLightTheme, pb: 3 }}
         />
       ),
+      title: t("features.ai.title"),
+      description: t("features.ai.description"),
     },
     {
       key: "automated",
@@ -42,6 +49,8 @@ const Services = () => {
           sx={{ fontSize: 70, color: secondaryLightTheme, pb: 3 }}
         />
       ),
+      title: t("features.automated.title"),
+      description: t("features.automated.description"),
     },
     {
       key: "cloud",
@@ -50,6 +59,9 @@ const Services = () => {
           sx={{ fontSize: 70, color: secondaryLightTheme, pb: 3 }}
         />
       ),
+      title: t("features.cloud.title"),
+      description: t("features.cloud.description"),
+      path: "Hosting",
     },
     {
       key: "security",
@@ -58,6 +70,8 @@ const Services = () => {
           sx={{ fontSize: 70, color: secondaryLightTheme, pb: 3 }}
         />
       ),
+      title: t("features.security.title"),
+      description: t("features.security.description"),
     },
     {
       key: "consulting",
@@ -66,6 +80,8 @@ const Services = () => {
           sx={{ fontSize: 70, color: secondaryLightTheme, pb: 3 }}
         />
       ),
+      title: t("features.consulting.title"),
+      description: t("features.consulting.description"),
     },
     {
       key: "marketing",
@@ -74,6 +90,8 @@ const Services = () => {
           sx={{ fontSize: 70, color: secondaryLightTheme, pb: 3 }}
         />
       ),
+      title: t("features.marketing.title"),
+      description: t("features.marketing.description"),
     },
     {
       key: "mobile",
@@ -82,6 +100,8 @@ const Services = () => {
           sx={{ fontSize: 70, color: secondaryLightTheme, pb: 3 }}
         />
       ),
+      title: t("features.mobile.title"),
+      description: t("features.mobile.description"),
     },
   ];
 
@@ -97,7 +117,6 @@ const Services = () => {
       }}
     >
       <Container>
-        {/* عنوان القسم */}
         <Typography
           variant="h2"
           textAlign="center"
@@ -131,21 +150,46 @@ const Services = () => {
                 viewport={{ once: true, amount: 0.5 }}
                 // sx={{ textAlign: "start", border: "1px solid red" }}
               >
-                {item.icon}
-                <Typography
-                  variant="h3"
-                  sx={{
-                    fontSize: { xs: "22px", sm: "26px", lg: "30px" },
-                    mb: 2,
-                    fontWeight: 600,
-                    lineHeight: 1.4,
-                  }}
-                >
-                  {t(`features.${item.key}.title`)}
-                </Typography>
-                <Typography color="#A5A7C5">
-                  {t(`features.${item.key}.description`)}
-                </Typography>
+                {item.path ? (
+                  <Link
+                    component={RouterLink}
+                    to={item.path}
+                    style={{ textDecoration: "none", color: "#fff" }}
+                  >
+                    {item.icon}
+                    <Typography
+                      variant="h3"
+                      sx={{
+                        fontSize: { xs: "22px", sm: "26px", lg: "30px" },
+                        mb: 2,
+                        fontWeight: 600,
+                        lineHeight: 1.4,
+                        "&:hover": {
+                          color: secondaryLightTheme, // تغيير اللون عند التمرير
+                        },
+                      }}
+                    >
+                      {item.title}
+                    </Typography>
+                  </Link>
+                ) : (
+                  <>
+                    {item.icon}
+                    <Typography
+                      variant="h3"
+                      sx={{
+                        fontSize: { xs: "22px", sm: "26px", lg: "30px" },
+                        mb: 2,
+                        fontWeight: 600,
+                        lineHeight: 1.4,
+                      }}
+                    >
+                      {item.title}
+                    </Typography>
+                  </>
+                )}
+
+                <Typography color="#A5A7C5">{item.description}</Typography>
               </motion.div>
             </Grid>
           ))}

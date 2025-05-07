@@ -28,9 +28,9 @@ function App() {
   useEffect(() => {
     const lang = i18n.language;
     if (lang === "ar") {
-      document.documentElement.setAttribute("dir", "rtl"); // تعيين اتجاه النص من اليمين لليسار
+      document.documentElement.setAttribute("dir", "rtl"); 
     } else {
-      document.documentElement.setAttribute("dir", "ltr"); // تعيين اتجاه النص من اليسار لليمين
+      document.documentElement.setAttribute("dir", "ltr"); 
     }
   }, [i18n.language]);
   return (
