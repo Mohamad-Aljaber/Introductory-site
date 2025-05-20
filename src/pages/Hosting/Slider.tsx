@@ -1,9 +1,12 @@
 import { Box, Container, Typography } from "@mui/material";
 import theme from "../../../public/theme/theme";
 import PricingSection from "./PricingSection";
+import { useTranslation } from "react-i18next";
 
 const Slider = () => {
+  const { t } = useTranslation();
   const primaryTheme = theme.palette.primary.main;
+  const secondaryTheme = theme.palette.secondary.main;
   return (
     <Box
       sx={{
@@ -21,13 +24,19 @@ const Slider = () => {
               py: 4,
             }}
           >
-            Choose plan which fit for you
+            {t("resource_package_title")}
           </Typography>
-          <Typography color="white">
-            Supercharge your WordPress hosting with detailed website analytics,
-            marketing tools. Our experts are just part of the reason Bluehost is
-            the ideal home for your WordPress website. We're here to help you
-            succeed!
+          <Typography
+            color="white"
+            variant="h5"
+          >
+            {t("resource_package_description")}
+          </Typography>
+          <Typography
+            sx={{ color: secondaryTheme, py: 2 }}
+            variant="h5"
+          >
+            {t("resource_package_custom_note")}
           </Typography>
         </Box>
         <PricingSection />

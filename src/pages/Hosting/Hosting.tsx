@@ -1,10 +1,10 @@
 import { Box } from "@mui/material";
-import SingleSlider from "../home/SingleSlider";
-import Services from "../home/Services";
-import About from "../home/About";
-import CompanyOverview from "../home/CompanyOverview";
-import AskQuestions from "../home/AskQuestions";
+import SingleSlider from "./SingleSlider";
+import Services from "./Services";
 import Slider from "./Slider";
+import About from "./About";
+import AskQuestions from "./AskQuestions";
+import CompanyOverview from "./CompanyOverview";
 
 const Hosting = () => {
   return (

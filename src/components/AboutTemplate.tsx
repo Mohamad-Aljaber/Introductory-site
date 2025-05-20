@@ -12,7 +12,8 @@ import theme from "../../public/theme/theme";
 import { useTranslation } from "react-i18next";
 
 type AboutListItem = {
-  text: string;
+  title: string;
+  description: string;
   icon: JSX.Element;
 };
 
@@ -29,6 +30,7 @@ type AboutTemplateProps = {
 };
 
 const primaryTheme = theme.palette.primary.main;
+const secondaryTheme = theme.palette.secondary.main;
 
 const AboutTemplate: React.FC<AboutTemplateProps> = ({ aboutItem }) => {
   const { i18n } = useTranslation();
@@ -85,17 +87,26 @@ const AboutTemplate: React.FC<AboutTemplateProps> = ({ aboutItem }) => {
                   key={listIndex}
                   sx={{
                     display: "flex",
+                    fontSize: "20px",
                     alignItems: "center",
-                    gap: 1,
+                    gap: 3,
                     pl: 0,
                     textAlign: textAlignValue,
                   }}
                 >
                   {listItem.icon}
                   <ListItemText
-                    primary={listItem.text}
+                    primary={listItem.title}
+                    secondary={listItem.description}
                     primaryTypographyProps={{
-                      sx: { fontSize: "16px", color: "#646D77" },
+                      sx: {
+                        fontSize: { xs: "18", sm: "20px", md: "22px" },
+                        color: secondaryTheme,
+                        fontWeight: "bold",
+                      },
+                    }}
+                    secondaryTypographyProps={{
+                      sx: { fontSize: "14px", color: "#9e9e9e" },
                     }}
                   />
                 </ListItem>

@@ -194,5 +194,101 @@
       "continuous_updates": "     Continuous updates to ensure the security and efficiency of systems and applications.",
       "modern_tech": "  Utilizing modern technologies to deliver innovative solutions that support the growth and success of our clients."
     }
+  },
+  "cloud": {
+    "title": "Skyline Cloud Hosting",
+    "description": "The best company to promote your business and increase your profits",
+    "paragraph": "Enhance your organization with a strong and advanced information and media system that increases your customers' confidence in you. We also help you host your existing system and provide technical support as well.",
+    "button": "Start with us"
+  },
+  "cloud_services_title": "Premium Cloud Services",
+  "cloud_services": {
+    "hosting": "Application and system hosting",
+    "email": "Email services",
+    "domain": "Purchase the right domain for your brand"
+  },
+  "resource_package_title": "Choose the resource package that suits your needs",
+  "resource_package_description": "We offer great flexibility in selecting the resources you need to smoothly and comfortably deploy your applications and systems online.",
+  "resource_package_custom_note": "If you need a custom package with specific resources, just contact us.",
+
+  "servers": {
+    "title": "Servers",
+    "description": "At Skyline, we have a highly advanced infrastructure that relies on high-performance servers carefully selected to ensure maximum speed, security, and stability. These servers are designed to meet the demands of website hosting, integrated systems, and e-commerce platforms with the highest efficiency.",
+    "features": {
+      "performance": {
+        "title": "Ultra-Fast Performance",
+        "description": "We use the latest multi-core processors and high-capacity RAM to ensure instant response and exceptional loading speed, even during peak traffic periods."
+      },
+      "security": {
+        "title": "Comprehensive Security",
+        "description": "We implement advanced protection systems such as firewalls, intrusion detection/prevention systems (IDS/IPS), and regular security updates to protect customer data and prevent breaches."
+      },
+      "backup": {
+        "title": "Daily Backup",
+        "description": "Automated and regular backups are taken to ensure data can be restored at any time, enhancing the reliability of our services."
+      },
+      "availability": {
+        "title": "High Availability",
+        "description": "Thanks to redundancy technologies and 24/7 monitoring, we ensure uninterrupted service with an uptime of up to 99.99%."
+      },
+      "support": {
+        "title": "24/7 Expert Technical Support",
+        "description": "Our experienced engineering team is always ready to respond promptly and resolve any issues to ensure smooth and stable operation."
+      }
+    }
+  },
+
+  "security": {
+    "title": "Security and Data Protection",
+    "description": "At Skyline, we prioritize information security and customer data privacy above all else. We firmly believe that trust is not given, but earned. For this reason, our hosting environment is designed according to the highest international standards for data protection and confidentiality.",
+    "features": {
+      "layers": {
+        "title": "Multi-layer Security System",
+        "description": "Our servers are equipped with intelligent next-gen firewalls and intrusion detection/prevention systems (IDS/IPS) to protect against all types of cyberattacks."
+      },
+      "encryption": {
+        "title": "Advanced Encryption",
+        "description": "We use strong encryption protocols (SSL/TLS) to secure data during transmission, in addition to full encryption of stored data to prevent unauthorized access."
+      },
+      "monitoring": {
+        "title": "24/7 Continuous Monitoring",
+        "description": "We monitor our servers and systems around the clock (24/7/365) with early warning systems and instant alerts for any suspicious activity or intrusion attempts."
+      },
+      "privacy": {
+        "title": "Privacy Protection",
+        "description": "We enforce strict data handling policies and comply with international standards such as GDPR to ensure full privacy and never access or share data without explicit customer consent."
+      },
+      "backup": {
+        "title": "Encrypted and Secure Backup",
+        "description": "Regular backups are stored on separate and secure servers to ensure data recovery in case of emergencies or unexpected loss."
+      }
+    }
+  },
+  "hosting": {
+    "title": "Skyline Hosting and Cloud Services – Quality, Security, and Genuine Support",
+    "description": "At Skyline, we don’t just offer powerful hosting and cloud storage—we deliver a complete experience combining high performance, advanced security, and hands-on support for every client.",
+    "features": {
+      "title": "What Sets Us Apart?",
+      "cloud_services": {
+        "title": " Flexible and Customized Cloud Services",
+        "description": "We provide a scalable cloud hosting environment tailored to your needs, suitable for both small and large projects, ensuring 24/7 reliability and stability."
+      },
+      "technical_support": {
+        "title": " Dedicated Technical Support After Booking",
+        "description": "Once a client reserves space and a domain on our servers, our technical team handles full deployment of the website or system and configures essential settings to meet project requirements."
+      },
+      "client_training": {
+        "title": " Hands-On Client Training",
+        "description": "We don't leave clients after setup—we provide direct and practical training on how to manage their rented space and control their website or system easily, with no prior technical experience needed."
+      },
+      "security": {
+        "title": " Secure and Professionally Managed Environment",
+        "description": "We prioritize data security and server stability using the latest protection technologies and continuous monitoring to ensure constant service readiness."
+      },
+      "support": {
+        "title": " Direct and Fast Communication",
+        "description": "We offer multiple fast support channels to reach our technical team—via phone, email, or live chat—so we’re always by your side when you need us."
+      }
+    }
   }
 }
